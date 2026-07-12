@@ -6,200 +6,193 @@
 <title>EZ COAT / NEXTCOAT — Biznesplan (rynek USA)</title>
 <style>
 /* =========================================================
-   SYSTEM STYLÓW — biznesplan A4 (raport dla inwestora)
-   Kolory pobrane z dostarczonych logo:
-   EZ COAT  -> amber #FCC40C, grafit #222220
-   NEXTCOAT -> czerwień #D81824 (gradient do #98040F), grafit-navy #0B1821
+   Biznesplan EZ COAT / NEXTCOAT — styl premium (A4)
+   Kolor przewodni: ciemna czerwień. Amber = wyłącznie marka EZ COAT.
+   Estetyka kart wzorowana na ofercie NEXTCOLD, w czerwieni.
    ========================================================= */
 :root{
-  /* KOLOR PRZEWODNI DOKUMENTU: ciemna czerwień */
-  --red:#9E1B22;          /* ciemna czerwień — kolor przewodni */
-  --red-deep:#5E0D14;     /* najciemniejsza czerwień (pasy, akcenty) */
-  --red-bright:#C4212B;   /* jaśniejszy akcent (oszczędnie) */
-  --red-tint:#F7ECED;     /* delikatne czerwone tło */
-  --amber:#FCC40C;        /* wyłącznie identyfikacja marki EZ COAT */
-  --amber-tint:#FEF3CE;
-  --ink:#26251F;          /* podstawowy tekst */
-  --graphite:#26251F;     /* ciemny grafit */
-  --navy:#0B1821;         /* człon NEXT w logotypie NEXTCOAT */
-  --muted:#736F67;
-  --line:#E8E4E1;
-  --line-strong:#D3CDC9;
-  --tint:#F8F6F4;         /* delikatne tło sekcji */
-  --white:#FFFFFF;
-  --serif:Georgia,"Times New Roman",serif;
+  --red:#9E1B22;          /* kolor przewodni */
+  --red-deep:#5E0D14;
+  --red-bright:#C4212B;
+  --red-tint:#FBEFEF;
+  --amber:#FCC40C;        /* wyłącznie marka EZ COAT */
+  --ink:#2B2A26;
+  --graphite:#2A2724;
+  --navy:#0B1821;
+  --muted:#7A756D;
+  --line:#EAE6E2;
+  --line-strong:#D9D3CE;
+  --tint:#F8F6F4;
+  --card:#F7F5F3;
+  --white:#fff;
   --sans:"Helvetica Neue",Arial,"Segoe UI",Roboto,system-ui,sans-serif;
 }
 
-/* ---------- USTAWIENIA STRONY A4 (druk) ---------- */
+/* ---------- STRONA A4 + nagłówki/stopki bieżące ---------- */
 @page{
   size:A4 portrait;
-  margin:22mm 18mm 20mm 18mm;
-  @bottom-left{
-    content:"EZ COAT / NEXTCOAT — Biznesplan • Poufne";
-    font-family:var(--sans); font-size:7.5pt; color:#9A9A94;
-  }
-  @bottom-right{
-    content:"Str. " counter(page) " / " counter(pages);
-    font-family:var(--sans); font-size:7.5pt; color:#9A9A94;
-  }
+  margin:23mm 18mm 18mm 18mm;
+  @top-left{ content:"EZ COAT / NEXTCOAT"; font-family:var(--sans); font-size:7.5pt;
+             font-weight:700; letter-spacing:1.2px; color:#B7B1AB; }
+  @top-right{ content:string(sectitle); font-family:var(--sans); font-size:7.5pt;
+              letter-spacing:.6px; color:#B7B1AB; text-transform:uppercase; }
+  @bottom-left{ content:"Biznesplan — rynek USA • Poufne"; font-family:var(--sans);
+                font-size:7.5pt; color:#B7B1AB; }
+  @bottom-right{ content:"Str. " counter(page) " / " counter(pages); font-family:var(--sans);
+                 font-size:7.5pt; color:#B7B1AB; }
 }
-@page cover{ margin:0; @bottom-left{content:""} @bottom-right{content:""} }
+@page cover{ margin:0;
+  @top-left{content:""} @top-right{content:""} @bottom-left{content:""} @bottom-right{content:""} }
 
 *{box-sizing:border-box;}
 html,body{margin:0;padding:0;}
-body{
-  font-family:var(--sans);
-  color:#2E2D27;
-  font-size:10.2pt;
-  line-height:1.5;
-  -webkit-font-smoothing:antialiased;
-  background:#6d6d6d;
-}
+body{ font-family:var(--sans); color:#33312B; font-size:10.2pt; line-height:1.5;
+  -webkit-font-smoothing:antialiased; background:#6d6d6d; }
 
-/* ---------- KONTENERY STRON (podgląd w przeglądarce) ---------- */
-.page{
-  background:var(--white);
-  width:210mm;
-  min-height:297mm;
-  margin:8mm auto;
-  padding:22mm 18mm 20mm 18mm;
-  box-shadow:0 2px 14px rgba(0,0,0,.28);
-  position:relative;
-}
-@media print{
-  body{background:none;}
-  .page{width:auto;min-height:auto;margin:0;padding:0;box-shadow:none;}
-  .page + .page{page-break-before:always;}
-}
-
-/* ---------- TYPOGRAFIA / NAGŁÓWKI ---------- */
-h1,h2,h3,h4{font-family:var(--sans);color:var(--graphite);margin:0;font-weight:800;}
-h2.section{
-  font-size:16pt; line-height:1.16; letter-spacing:-.1px;
-  padding:0 0 8px 0; margin:0 0 13px 0;
-  border-bottom:2px solid var(--red);
-  display:flex; gap:12px; align-items:flex-start;
-}
-h2.section .num{
-  color:var(--red); font-weight:800; white-space:nowrap;
-}
-h3.sub{
-  font-size:11.6pt; margin:18px 0 8px 0; color:var(--graphite);
-  letter-spacing:.2px;
-}
-h3.sub .num{color:var(--red); font-weight:800; margin-right:6px;}
-h4{font-size:10.4pt;margin:12px 0 4px 0;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);}
 p{margin:0 0 8px 0;}
 ul,ol{margin:0 0 8px 0;padding-left:18px;}
 li{margin:2px 0;}
 strong{color:var(--graphite);}
-.small{font-size:8.6pt;color:var(--muted);}
-.lead{font-size:11pt;color:#3a3a37;}
+em{font-style:italic;}
+.small{font-size:8.5pt;color:var(--muted);}
+.lead{font-size:11pt;color:#3a3833;}
 
-/* ---------- KAROWY NAGŁÓWEK BIEŻĄCY (na treściowych stronach) ---------- */
-.runhead{
-  display:flex;justify-content:space-between;align-items:center;
-  border-bottom:1px solid var(--line);
-  padding-bottom:6px;margin-bottom:16px;
-  font-size:8pt;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);
-}
-.runhead .brand{font-weight:800;color:var(--graphite);}
+/* ---------- OKŁADKA ---------- */
+.cover{ page:cover; break-after:page; background:var(--white); }
+.cover-hero{ background:linear-gradient(150deg,#4A0D12 0%,#2A0A0C 55%,#231A18 100%);
+  color:#fff; padding:27mm 22mm 20mm 22mm; position:relative; }
+.cover-hero .bar{ position:absolute; top:0; left:0; width:100%; height:5px;
+  background:linear-gradient(90deg,var(--red) 0 62%,var(--amber) 62% 100%); }
+.cover-eyebrow{ font-size:8.5pt; letter-spacing:3.5px; text-transform:uppercase;
+  color:#E7C07A; font-weight:700; margin:26px 0 0 0; }
+.cover h1{ color:#fff; font-size:34pt; line-height:1.05; margin:9px 0 0 0;
+  letter-spacing:-.6px; font-weight:800; }
+.cover-rule{ width:64px;height:3px;background:var(--red-bright);margin:16px 0 0;border-radius:2px; }
+.cover-sub{ margin:14px 0 0; font-size:12.5pt; line-height:1.4; color:#E4DCD8;
+  max-width:150mm; font-weight:300; }
+.cover-body{ padding:16mm 22mm 0; }
+.cover-vp{ border-left:4px solid var(--red); padding:2px 0 2px 16px; }
+.cover-vp p{ font-size:11.5pt; color:var(--graphite); margin:0; }
+.cover-meta{ padding:0 22mm; margin-top:14mm; }
+.cover-meta table{ width:100%; border-collapse:collapse; font-size:9pt; }
+.cover-meta td{ padding:10px 0; border-top:1px solid var(--line-strong); }
+.cover-meta td:first-child{ color:var(--muted); width:38%; }
+.cover-meta td:last-child{ font-weight:700; color:var(--graphite); }
 
-/* ---------- RAMKI / WYRÓŻNIENIA ---------- */
-.box{
-  border:1px solid var(--line-strong);
-  border-left:4px solid var(--red);
-  background:var(--tint);
-  padding:11px 14px; margin:11px 0; border-radius:3px;
-  break-inside:avoid;
-}
-.box .box-title{font-weight:800;color:var(--graphite);text-transform:uppercase;
-  letter-spacing:.6px;font-size:9pt;margin-bottom:6px;}
-.callout-red{border-left-color:var(--red);}
-.callout-navy{border-left-color:var(--navy);}
-
-.assumption{
-  border:1px dashed #C99A12; background:var(--amber-tint);
-  padding:10px 13px;margin:12px 0;border-radius:2px;break-inside:avoid;font-size:9.4pt;
-}
-.assumption:before{
-  content:"⚑ ZAŁOŻENIE WYMAGAJĄCE POTWIERDZENIA";
-  display:block;font-weight:800;color:#8a6d00;letter-spacing:.5px;font-size:8pt;margin-bottom:4px;
-}
-.todo{
-  border:1px dashed #9AA0A6; background:#F3F5F6;
-  padding:10px 13px;margin:12px 0;border-radius:2px;break-inside:avoid;font-size:9.4pt;
-}
-.todo:before{
-  content:"▢ DANE DO UZUPEŁNIENIA";
-  display:block;font-weight:800;color:#556; letter-spacing:.5px;font-size:8pt;margin-bottom:4px;
+/* ---------- SHEET (treść płynąca) ---------- */
+.sheet{ background:var(--white); }
+@media screen{
+  .cover{ max-width:210mm; margin:14px auto 0; box-shadow:0 2px 16px rgba(0,0,0,.3); }
+  .sheet{ max-width:210mm; margin:0 auto 14px; padding:20mm 18mm; box-shadow:0 2px 16px rgba(0,0,0,.3); }
 }
 
-/* podsumowanie sekcji */
-.summary{
-  background:linear-gradient(100deg,var(--red-deep) 0%,#7A1119 100%); color:#F6ECE9;
-  padding:11px 15px;margin:14px 0 2px 0;border-radius:4px;break-inside:avoid;
-}
-.summary .box-title{color:#F0C99C;text-transform:uppercase;letter-spacing:1.1px;
-  font-size:8.5pt;font-weight:800;margin-bottom:5px;}
-.summary p, .summary li{color:#F4E8E4;}
-.summary strong{color:var(--white);}
+/* ---------- SPIS TREŚCI ---------- */
+.toc{ break-after:page; }
+.toc h2{ font-size:16pt; font-weight:800; color:var(--graphite); margin:0 0 14px;
+  padding-left:14px; position:relative; }
+.toc h2::before{ content:""; position:absolute; left:0; top:2px; bottom:2px; width:5px;
+  background:var(--red); border-radius:3px; }
+.toc a{ display:block; color:var(--graphite); text-decoration:none; font-size:10.6pt;
+  margin:7px 0; }
+.toc a .tn{ color:var(--red); font-weight:800; display:inline-block; width:26px; }
+.toc a::after{ content: leader('. ') target-counter(attr(href), page);
+  color:var(--muted); font-weight:400; }
+.toc a .tt{ font-weight:600; }
 
-/* ---------- TABELE ---------- */
-table.tbl{
-  width:100%;border-collapse:collapse;margin:12px 0;font-size:9.2pt;break-inside:auto;
-}
-table.tbl caption{
-  caption-side:top;text-align:left;font-weight:800;color:var(--muted);
-  font-size:8.3pt;letter-spacing:.8px;text-transform:uppercase;padding-bottom:5px;
-}
-table.tbl th{
-  background:var(--graphite);color:#fff;text-align:left;
-  padding:7px 9px;font-size:8.6pt;letter-spacing:.3px;vertical-align:middle;
-  border:1px solid var(--graphite);
-}
-table.tbl td{
-  padding:6px 9px;border:1px solid var(--line);vertical-align:top;
-}
-table.tbl tbody tr:nth-child(even){background:var(--tint);}
-table.tbl tr{break-inside:avoid;}
-table.tbl td.num,table.tbl th.num{text-align:right;white-space:nowrap;}
-.tag{display:inline-block;background:var(--red);color:#fff;font-weight:800;
-  font-size:7.6pt;padding:1px 7px;border-radius:3px;letter-spacing:.4px;}
-.tag.red{background:var(--red);color:#fff;}
-.tag.amber{background:var(--amber);color:#3a2e00;}
-.tag.navy{background:var(--navy);color:#fff;}
+/* ---------- SEKCJE / NAGŁÓWKI ---------- */
+section.sec{ margin:0 0 6px; }
+section.sec + section.sec{ margin-top:20px; }
+h2.sec{ font-size:15.5pt; font-weight:800; color:var(--graphite); letter-spacing:-.2px;
+  line-height:1.16; margin:0 0 11px; padding-left:14px; position:relative;
+  string-set:sectitle content(); break-after:avoid; }
+h2.sec::before{ content:""; position:absolute; left:0; top:2px; bottom:2px; width:5px;
+  background:var(--red); border-radius:3px; }
+h2.sec .num{ color:var(--red); font-weight:800; margin-right:7px; }
+h3.sub{ font-size:11.4pt; font-weight:800; color:var(--graphite); margin:16px 0 7px;
+  break-after:avoid; }
+h3.sub .num{ color:var(--red); font-weight:800; margin-right:6px; }
+h4{ font-size:9.6pt; margin:12px 0 5px; text-transform:uppercase; letter-spacing:.7px;
+  color:var(--muted); font-weight:800; }
+
+/* ---------- KARTY / RAMKI ---------- */
+/* kluczowy wniosek — TYLKO czerwona ramka, bez etykiety */
+.take{ background:var(--white); border:1px solid var(--line-strong);
+  border-left:4px solid var(--red); border-radius:7px; padding:11px 15px; margin:13px 0;
+  break-inside:avoid; color:#3c3a34; }
+.take p{margin:0;}
+
+/* nota (założenie / dane) — elegancka karta z pigułką */
+.note{ background:var(--card); border:1px solid var(--line); border-radius:10px;
+  padding:13px 16px; margin:13px 0; break-inside:avoid; }
+.pill{ display:inline-block; background:var(--red); color:#fff; font-size:7pt;
+  font-weight:800; letter-spacing:1px; text-transform:uppercase; padding:3px 11px;
+  border-radius:20px; margin-bottom:8px; }
+.pill.muted{ background:#8A857D; }
+.note p{ margin:0; font-size:9.4pt; color:#46433d; }
+
+/* karta informacyjna / hero wewnętrzny */
+.panel{ background:var(--card); border:1px solid var(--line); border-radius:12px;
+  padding:16px 18px; margin:12px 0; break-inside:avoid; }
+.panel-dark{ background:linear-gradient(140deg,#3A0A0E,#231A18); color:#EDE6E3;
+  border:none; }
+.panel-dark h4{ color:#E7C07A; }
+.panel-dark strong{ color:#fff; }
+
+/* pigułki tagów */
+.tag{ display:inline-block; background:var(--red); color:#fff; font-weight:800;
+  font-size:7.4pt; padding:2px 9px; border-radius:20px; letter-spacing:.5px; }
+.tag.amber{ background:var(--amber); color:#3a2e00; }
+.tag.navy{ background:var(--navy); color:#fff; }
 
 /* dwie kolumny */
-.cols2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.cols2 .col{background:var(--tint);border:1px solid var(--line);border-radius:3px;padding:12px 14px;}
-.cols2 .col h4{margin-top:0;color:var(--graphite);border-bottom:2px solid var(--red);
-  padding-bottom:4px;display:inline-block;}
+.cols2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.col-card{ background:var(--card); border:1px solid var(--line); border-radius:10px;
+  padding:13px 15px; }
+.col-card h4{ margin-top:0; color:var(--graphite); }
 
-/* checklista celów */
-ul.check{list-style:none;padding-left:0;}
-ul.check li{padding-left:22px;position:relative;margin:5px 0;}
-ul.check li:before{content:"▸";position:absolute;left:4px;color:var(--red);font-weight:800;}
+/* siatka kart z „ptaszkiem” */
+.grid2{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.grid3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
+.fcard{ background:var(--card); border:1px solid var(--line); border-radius:10px;
+  padding:11px 13px; break-inside:avoid; overflow:hidden; }
+.fcard .ic{ float:left; width:22px; height:22px; border-radius:6px; background:var(--red);
+  color:#fff; text-align:center; line-height:22px; font-size:12px; font-weight:800;
+  margin-right:10px; }
+.fcard .tx{ overflow:hidden; display:block; }
+.fcard .tx b{ color:var(--graphite); }
 
-/* kroki / numerowane karty */
-.steps{counter-reset:step;}
-.step{position:relative;padding-left:34px;margin:9px 0;break-inside:avoid;}
-.step:before{
-  counter-increment:step;content:counter(step);
-  position:absolute;left:0;top:0;width:23px;height:23px;border-radius:50%;
-  background:var(--red-deep);color:#fff;font-weight:800;font-size:9pt;
-  display:flex;align-items:center;justify-content:center;
-}
+/* karty-kamienie milowe (cele) */
+.mcard{ background:var(--white); border:1px solid var(--line-strong); border-radius:10px;
+  padding:11px 13px 11px 13px; break-inside:avoid; overflow:hidden; }
+.mcard .no{ float:left; width:24px; height:24px; border-radius:50%;
+  background:var(--red-deep); color:#fff; text-align:center; line-height:24px;
+  font-size:9pt; font-weight:800; margin-right:11px; }
+.mcard .tx{ overflow:hidden; display:block; font-size:9.6pt; }
+
+/* ---------- TABELE ---------- */
+table.tbl{ width:100%; border-collapse:collapse; margin:12px 0; font-size:9.2pt;
+  border-radius:8px; overflow:hidden; }
+table.tbl caption{ caption-side:top; text-align:left; font-weight:800; color:var(--muted);
+  font-size:8.2pt; letter-spacing:.9px; text-transform:uppercase; padding-bottom:6px; }
+table.tbl th{ background:var(--red-deep); color:#fff; text-align:left; padding:8px 10px;
+  font-size:8.5pt; letter-spacing:.4px; vertical-align:middle; }
+table.tbl td{ padding:7px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+table.tbl tbody tr:nth-child(even){ background:var(--tint); }
+table.tbl tr{ break-inside:avoid; }
+table.tbl td.num,table.tbl th.num{ text-align:right; white-space:nowrap; }
+.hl-row{ background:var(--red-tint) !important; font-weight:800; }
+
+/* logo boxes */
+.logo-wrap{ text-align:center; }
+.logo-wrap img{ width:auto; }
 </style>
 </head>
 <body>
 
-
 <!-- ============================= OKŁADKA ============================= -->
-<section class="page" style="page:cover;padding:0;display:flex;flex-direction:column;">
-  <div style="background:linear-gradient(150deg,#4A0D12 0%,#2A0A0C 55%,#231A18 100%);color:#fff;flex:0 0 auto;padding:27mm 22mm 20mm 22mm;position:relative;">
-    <div style="position:absolute;top:0;left:0;width:100%;height:5px;background:linear-gradient(90deg,var(--red) 0 62%,var(--amber) 62% 100%);"></div>
+<div class="cover">
+  <div class="cover-hero">
+    <div class="bar"></div>
     <table style="border-collapse:collapse;"><tr>
       <td style="vertical-align:middle;padding-right:24px;">
         <img src="assets/ez-coat-logo.png" alt="EZ COAT" style="height:118px;width:auto;background:#fff;padding:8px;border-radius:6px;">
@@ -208,156 +201,105 @@ ul.check li:before{content:"▸";position:absolute;left:4px;color:var(--red);fon
         <img src="assets/nextcoat-logo.png" alt="NEXTCOAT" style="height:34px;width:auto;background:#fff;padding:12px 16px;border-radius:6px;">
       </td>
     </tr></table>
-    <p style="margin:26px 0 0 0;font-size:8.5pt;letter-spacing:3.5px;text-transform:uppercase;color:#E7C07A;font-weight:700;">NEXT Industries &nbsp;•&nbsp; Chemia budowlana</p>
-    <h1 style="color:#fff;font-size:34pt;line-height:1.05;margin:9px 0 0 0;letter-spacing:-.6px;font-weight:800;">Biznesplan wejścia<br>na rynek USA</h1>
-    <div style="width:64px;height:3px;background:var(--red-bright);margin:16px 0 0 0;border-radius:2px;"></div>
-    <p style="margin:14px 0 0 0;font-size:12.5pt;line-height:1.4;color:#E4DCD8;max-width:150mm;font-weight:300;">
-      Europejska technologia chemii budowlanej. Amerykańskie doświadczenie.
-      Skalowalny model dystrybucji.</p>
+    <p class="cover-eyebrow">NEXT Industries &nbsp;•&nbsp; Chemia budowlana</p>
+    <h1>Biznesplan wejścia<br>na rynek USA</h1>
+    <div class="cover-rule"></div>
+    <p class="cover-sub">Europejska technologia chemii budowlanej. Amerykańskie doświadczenie. Skalowalny model dystrybucji.</p>
   </div>
 
-  <div style="flex:1 1 auto;padding:16mm 22mm 0 22mm;">
-    <div style="border-left:4px solid var(--red);padding:2px 0 2px 16px;">
-      <p style="font-size:11.5pt;color:var(--graphite);margin:0;">
-        Marka specjalistycznych produktów do wykonywania, ochrony i renowacji elewacji —
-        oferowana w USA w modelu opartym na produkcji w Polsce, imporcie kontenerowym,
-        lokalnej dystrybucji i wsparciu sprzedaży przez narzędzia AI.</p>
+  <div class="cover-body">
+    <div class="cover-vp">
+      <p>Marka specjalistycznych produktów do wykonywania, ochrony i renowacji elewacji — oferowana w USA w modelu opartym na produkcji w Polsce, imporcie kontenerowym, lokalnej dystrybucji i wsparciu sprzedaży przez narzędzia AI.</p>
     </div>
-    <p class="small" style="margin-top:14px;">Rozważane nazwy handlowe projektu: <strong>EZ COAT</strong> oraz <strong>NEXTCOAT</strong> (porównanie w rozdz. 19).</p>
+    <p class="small" style="margin-top:14px;">Rozważane nazwy handlowe projektu: <strong>EZ COAT</strong> oraz <strong>NEXTCOAT</strong> (porównanie w rozdz. 18).</p>
   </div>
 
-  <div style="flex:0 0 auto;padding:0 22mm 20mm 22mm;">
-    <table style="width:100%;border-collapse:collapse;font-size:9pt;">
-      <tr>
-        <td style="padding:10px 0;border-top:1px solid var(--line-strong);color:var(--muted);width:40%;">Dokument</td>
-        <td style="padding:10px 0;border-top:1px solid var(--line-strong);font-weight:700;">Prezentacja dla partnerów biznesowych i inwestorów z USA</td>
-      </tr>
-      <tr>
-        <td style="padding:10px 0;border-top:1px solid var(--line);color:var(--muted);">Podmiot</td>
-        <td style="padding:10px 0;border-top:1px solid var(--line);font-weight:700;">NEXT Industries — marka EZ COAT / NEXTCOAT</td>
-      </tr>
-      <tr>
-        <td style="padding:10px 0;border-top:1px solid var(--line);color:var(--muted);">Status</td>
-        <td style="padding:10px 0;border-top:1px solid var(--line);font-weight:700;">Poufne — wersja robocza do uzgodnień</td>
-      </tr>
+  <div class="cover-meta">
+    <table>
+      <tr><td>Dokument</td><td>Prezentacja dla partnerów biznesowych i inwestorów z USA</td></tr>
+      <tr><td>Podmiot</td><td>NEXT Industries — marka EZ COAT / NEXTCOAT</td></tr>
+      <tr><td>Status</td><td>Poufne — wersja robocza do uzgodnień</td></tr>
     </table>
-    <p class="small" style="margin-top:8px;color:#B4B4AE;">Opracowanie uporządkowane na podstawie materiału źródłowego projektu. Wartości oznaczone jako „Założenie wymagające potwierdzenia” oraz pola „Dane do uzupełnienia” wymagają weryfikacji przed decyzjami inwestycyjnymi.</p>
+    <p class="small" style="margin-top:10px;color:#B4B4AE;">Opracowano wyłącznie na podstawie dostarczonego materiału źródłowego i wskazanego kontekstu. Pozycje oznaczone jako „Założenie do potwierdzenia" oraz „Dane do uzupełnienia" wymagają weryfikacji przed decyzjami inwestycyjnymi.</p>
   </div>
-</section>
+</div>
+
+<div class="sheet">
 
 <!-- ============================= SPIS TREŚCI ============================= -->
-<section class="page">
-  <div class="runhead"><span class="brand">EZ COAT / NEXTCOAT</span><span>Biznesplan — rynek USA</span></div>
-  <h2 class="section"><span class="num">—</span><span>Spis treści</span></h2>
+<nav class="toc">
+  <h2>Spis treści</h2>
+  <a href="#s1"><span class="tn">1</span><span class="tt">Streszczenie projektu</span></a>
+  <a href="#s2"><span class="tn">2</span><span class="tt">Geneza i koncepcja</span></a>
+  <a href="#s3"><span class="tn">3</span><span class="tt">Problemy wykonawców i problem rynkowy</span></a>
+  <a href="#s4"><span class="tn">4</span><span class="tt">Rozwiązanie i portfolio produktów</span></a>
+  <a href="#s5"><span class="tn">5</span><span class="tt">Produkty priorytetowe na start</span></a>
+  <a href="#s6"><span class="tn">6</span><span class="tt">Ekonomika produktów</span></a>
+  <a href="#s7"><span class="tn">7</span><span class="tt">Logistyka kontenerowa</span></a>
+  <a href="#s8"><span class="tn">8</span><span class="tt">Model biznesowy w USA</span></a>
+  <a href="#s9"><span class="tn">9</span><span class="tt">Współpraca partnera polskiego i amerykańskiego</span></a>
+  <a href="#s10"><span class="tn">10</span><span class="tt">Wsparcie sprzedaży przez AI</span></a>
+  <a href="#s11"><span class="tn">11</span><span class="tt">Zapotrzebowanie finansowe</span></a>
+  <a href="#s12"><span class="tn">12</span><span class="tt">Organizacja w Polsce i USA</span></a>
+  <a href="#s13"><span class="tn">13</span><span class="tt">Dokumentacja i wymagania regulacyjne</span></a>
+  <a href="#s14"><span class="tn">14</span><span class="tt">Budowa produktu markowego</span></a>
+  <a href="#s15"><span class="tn">15</span><span class="tt">Kluczowe przewagi</span></a>
+  <a href="#s16"><span class="tn">16</span><span class="tt">Ryzyka projektu</span></a>
+  <a href="#s17"><span class="tn">17</span><span class="tt">Cele na pierwsze 12 miesięcy</span></a>
+  <a href="#s18"><span class="tn">18</span><span class="tt">Porównanie nazw: EZ COAT i NEXTCOAT</span></a>
+</nav>
 
-  <table class="tbl" style="font-size:9.6pt;">
-    <tbody>
-      <tr><td style="width:34px;font-weight:800;color:var(--red);">1</td><td>Streszczenie projektu</td></tr>
-      <tr><td style="font-weight:800;color:var(--red);">2</td><td>Geneza i koncepcja</td></tr>
-      <tr><td style="font-weight:800;color:var(--red);">3</td><td>Problemy wykonawców i problem rynkowy</td></tr>
-      <tr><td style="font-weight:800;color:var(--red);">4</td><td>Rozwiązanie i portfolio produktów</td></tr>
-      <tr><td style="font-weight:800;color:var(--red);">5</td><td>Produkty priorytetowe na start</td></tr>
-      <tr><td style="font-weight:800;color:var(--red);">6</td><td>Ekonomika produktów</td></tr>
-      <tr><td style="font-weight:800;color:var(--red);">7</td><td>Logistyka kontenerowa</td></tr>
-      <tr><td style="font-weight:800;color:var(--red);">8</td><td>Model biznesowy w USA</td></tr>
-      <tr><td style="font-weight:800;color:var(--red);">9</td><td>Współpraca partnera polskiego i amerykańskiego</td></tr>
-      <tr><td style="font-weight:800;color:var(--red);">10</td><td>Wsparcie sprzedaży przez AI</td></tr>
-      <tr><td style="font-weight:800;color:var(--red);">11</td><td>Zapotrzebowanie finansowe</td></tr>
-      <tr><td style="font-weight:800;color:var(--red);">12</td><td>Organizacja w Polsce i USA</td></tr>
-      <tr><td style="font-weight:800;color:var(--red);">13</td><td>Dokumentacja i wymagania regulacyjne</td></tr>
-      <tr><td style="font-weight:800;color:var(--red);">14</td><td>Budowa produktu markowego</td></tr>
-      <tr><td style="font-weight:800;color:var(--red);">15</td><td>Kluczowe przewagi</td></tr>
-      <tr><td style="font-weight:800;color:var(--red);">16</td><td>Ryzyka projektu</td></tr>
-      <tr><td style="font-weight:800;color:var(--red);">17</td><td>Cele na pierwsze 12 miesięcy</td></tr>
-      <tr><td style="font-weight:800;color:var(--red);">18</td><td>Architektura marek NEXT Industries</td></tr>
-      <tr><td style="font-weight:800;color:var(--red);">19</td><td>Porównanie nazw: EZ COAT i NEXTCOAT</td></tr>
-      <tr><td style="font-weight:800;color:var(--red);">20</td><td>Mini brandbook</td></tr>
-      <tr><td style="font-weight:800;color:var(--navy);">21</td><td>Informacje wymagające potwierdzenia</td></tr>
-    </tbody>
-  </table>
-
-  <div class="box">
-    <div class="box-title">Jak czytać ten dokument</div>
-    <p style="margin:0;">Rozdziały 1–17 opisują koncepcję biznesową. Rozdziały 18–20 dotyczą architektury marek i identyfikacji wizualnej. Rozdział 21 zbiera wszystkie pozycje wymagające potwierdzenia lub uzupełnienia. Numeracja została ujednolicona (system 1. / 1.1. / 1.2.) względem materiału źródłowego.</p>
-  </div>
-</section>
+<main>
 
 
-<!-- ===================== 1. STRESZCZENIE PROJEKTU ===================== -->
-<section class="page">
-  <div class="runhead"><span class="brand">EZ COAT / NEXTCOAT</span><span>1 — Streszczenie projektu</span></div>
-  <h2 class="section"><span class="num">1.</span><span>Streszczenie projektu</span></h2>
-
+<!-- ===================== 1. STRESZCZENIE ===================== -->
+<section class="sec" id="s1">
+  <h2 class="sec"><span class="num">1.</span>Streszczenie projektu</h2>
   <p class="lead">EZ COAT to marka specjalistycznych produktów do wykonywania, ochrony i renowacji elewacji. Celem projektu jest uruchomienie sprzedaży w Stanach Zjednoczonych.</p>
-
   <p>Model wejścia na rynek opiera się na sześciu filarach:</p>
-  <ul>
-    <li>początkowej produkcji w Polsce,</li>
-    <li>imporcie produktów do USA w kontenerach,</li>
-    <li>lokalnym magazynie i dystrybucji,</li>
-    <li>sprzedaży do wykonawców i hurtowni budowlanych,</li>
-    <li>wsparciu sprzedaży przez narzędzia AI,</li>
-    <li>budowie własnego, kompletnego systemu elewacyjnego EZ COAT.</li>
-  </ul>
-
+  <div class="grid2">
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Początkowa produkcja w Polsce</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Import produktów do USA w kontenerach</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Lokalny magazyn i dystrybucja</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Sprzedaż do wykonawców i hurtowni budowlanych</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Wsparcie sprzedaży przez narzędzia AI</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Budowa własnego, kompletnego systemu elewacyjnego</span></div>
+  </div>
   <div class="cols2" style="margin-top:12px;">
-    <div class="col">
-      <h4>Propozycja wartości</h4>
-      <p style="margin:0;">Połączenie europejskiej technologii chemii budowlanej z amerykańskim doświadczeniem wykonawczym, w skalowalnym modelu dystrybucji nakierowanym na kompletny system, a nie pojedynczy produkt.</p>
-    </div>
-    <div class="col">
-      <h4>Grupy docelowe na start</h4>
-      <p style="margin:0;">Wykonawcy elewacji oraz mniejsze hurtownie budowlane bez dostępu „z pierwszej ręki” do systemów wiodących producentów; docelowo także sprzedaż internetowa i projekty inwestycyjne.</p>
-    </div>
+    <div class="col-card"><h4>Propozycja wartości</h4><p style="margin:0;">Połączenie europejskiej technologii chemii budowlanej z amerykańskim doświadczeniem wykonawczym, w skalowalnym modelu dystrybucji nakierowanym na kompletny system, a nie pojedynczy produkt.</p></div>
+    <div class="col-card"><h4>Grupy docelowe na start</h4><p style="margin:0;">Wykonawcy elewacji oraz mniejsze hurtownie budowlane bez dostępu „z pierwszej ręki" do systemów wiodących; docelowo także sprzedaż internetowa i projekty inwestycyjne.</p></div>
   </div>
-
-  <div class="summary">
-    <div class="box-title">W skrócie</div>
-    <p style="margin:0;">Produkt tworzony wspólnie przez wykonawców z USA i technologów z Europy, wytwarzany w Polsce i importowany kontenerami do lokalnego magazynu w USA. Przewaga budowana jest przez kompletność systemu, atrakcyjny koszt produkcji oraz wsparcie sprzedaży narzędziami AI.</p>
-  </div>
+  <div class="take"><p>Przewaga projektu opiera się na sprzedaży kompletnego systemu elewacyjnego, a nie pojedynczych produktów — przy atrakcyjnym koszcie produkcji w Polsce i lokalnej obsłudze rynku w USA.</p></div>
 </section>
 
-<!-- ===================== 2. GENEZA I KONCEPCJA ===================== -->
-<section class="page">
-  <div class="runhead"><span class="brand">EZ COAT / NEXTCOAT</span><span>2 — Geneza i koncepcja</span></div>
-  <h2 class="section"><span class="num">2.</span><span>Geneza i koncepcja</span></h2>
-
-  <div class="box">
-    <div class="box-title">Punkt wyjścia — prośba wykonawców</div>
-    <p style="margin:0;font-style:italic;">„Chcemy produktów łatwych (EZ — easy) w nanoszeniu, bogatych w składniki, które zapewniają produktom długowieczność. Chcemy produktów odpornych na wodę i spękania. Chcemy produktów o wysokiej wydajności, które obniżą koszty naszych prac na elewacjach.”</p>
-    <p class="small" style="margin:6px 0 0 0;">Prośba dwóch wiodących, doświadczonych wykonawców elewacji z USA skierowana do dwóch polskich technologów z wieloletnim doświadczeniem.</p>
+<!-- ===================== 2. GENEZA ===================== -->
+<section class="sec" id="s2">
+  <h2 class="sec"><span class="num">2.</span>Geneza i koncepcja</h2>
+  <div class="panel">
+    <span class="pill">Punkt wyjścia — prośba wykonawców</span>
+    <p style="margin:0;font-style:italic;color:#3c3a34;">„Chcemy produktów łatwych (EZ — easy) w nanoszeniu, bogatych w składniki, które zapewniają produktom długowieczność. Chcemy produktów odpornych na wodę i spękania. Chcemy produktów o wysokiej wydajności, które obniżą koszty naszych prac na elewacjach."</p>
+    <p class="small" style="margin:8px 0 0;">Prośba dwóch wiodących, doświadczonych wykonawców elewacji z USA skierowana do dwóch polskich technologów z wieloletnim doświadczeniem.</p>
   </div>
-
-  <p>Połączone, blisko 100-letnie doświadczenie w wykonawstwie i technologii — z Ameryki i z Europy — zaowocowało linią produktów EZ COAT, przeznaczoną do ochrony i zdobienia elewacji.</p>
-
-  <p>Nazwa <strong>„EZ”</strong> odwołuje się do idei <em>easy</em> — łatwej aplikacji produktów, będącej bezpośrednią odpowiedzią na oczekiwania wykonawców.</p>
-
-  <div class="summary">
-    <div class="box-title">W skrócie</div>
-    <p style="margin:0;">Koncepcja marki wyrasta z realnego zapotrzebowania rynku: produkty mają być łatwe w nanoszeniu, trwałe, odporne na wodę i spękania oraz wydajne kosztowo dla wykonawcy.</p>
-  </div>
+  <p>Połączone, blisko 100-letnie doświadczenie w wykonawstwie i technologii — z Ameryki i z Europy — zaowocowało linią produktów EZ COAT, przeznaczoną do ochrony i zdobienia elewacji. Nazwa <strong>„EZ"</strong> odwołuje się do idei <em>easy</em> — łatwej aplikacji produktów, będącej bezpośrednią odpowiedzią na oczekiwania wykonawców.</p>
+  <div class="take"><p>Marka odpowiada na konkretne oczekiwanie rynku: łatwość aplikacji, trwałość oraz odporność na wodę i spękania.</p></div>
 </section>
 
-<!-- ===================== 3. PROBLEMY WYKONAWCÓW I PROBLEM RYNKOWY ===================== -->
-<section class="page">
-  <div class="runhead"><span class="brand">EZ COAT / NEXTCOAT</span><span>3 — Problemy i rynek</span></div>
-  <h2 class="section"><span class="num">3.</span><span>Problemy wykonawców i problem rynkowy</span></h2>
-
+<!-- ===================== 3. PROBLEMY I RYNEK ===================== -->
+<section class="sec" id="s3">
+  <h2 class="sec"><span class="num">3.</span>Problemy wykonawców i problem rynkowy</h2>
   <h3 class="sub"><span class="num">3.1.</span>Problemy wykonawców</h3>
-  <p>Produkty EZ COAT są odpowiedzią na rzeczywiste problemy wykonawców:</p>
-  <ul>
-    <li>zbyt trudną aplikację,</li>
-    <li>niewystarczającą odporność na wodę,</li>
-    <li>powstawanie rys i spękań,</li>
-    <li>niską wydajność materiałów,</li>
-    <li>zbyt dużą liczbę reklamacji,</li>
-    <li>niekompatybilność produktów różnych producentów,</li>
-    <li>wysokie koszty robocizny i poprawek.</li>
-  </ul>
+  <div class="grid2">
+    <div class="fcard"><span class="ic">!</span><span class="tx">Zbyt trudna aplikacja</span></div>
+    <div class="fcard"><span class="ic">!</span><span class="tx">Niewystarczająca odporność na wodę</span></div>
+    <div class="fcard"><span class="ic">!</span><span class="tx">Powstawanie rys i spękań</span></div>
+    <div class="fcard"><span class="ic">!</span><span class="tx">Niska wydajność materiałów</span></div>
+    <div class="fcard"><span class="ic">!</span><span class="tx">Zbyt duża liczba reklamacji</span></div>
+    <div class="fcard"><span class="ic">!</span><span class="tx">Niekompatybilność produktów różnych producentów</span></div>
+    <div class="fcard" style="grid-column:1 / span 2;"><span class="ic">!</span><span class="tx">Wysokie koszty robocizny i poprawek</span></div>
+  </div>
 
   <h3 class="sub"><span class="num">3.2.</span>Problem rynkowy</h3>
   <p>Rynek materiałów elewacyjnych w USA jest duży, ale zdominowany przez sześciu głównych producentów. Są to duże korporacje, które przejmują mniejszych producentów w momencie, gdy ci zaczynają zabierać im rynek.</p>
-
   <table class="tbl">
     <caption>Główni konkurenci na rynku USA</caption>
     <thead><tr><th style="width:50%;">Producent</th><th style="width:50%;">Producent</th></tr></thead>
@@ -367,133 +309,67 @@ ul.check li:before{content:"▸";position:absolute;left:4px;color:var(--red);fon
       <tr><td>Sto</td><td>Mapei</td></tr>
     </tbody>
   </table>
-
   <p>Wymienionych sześciu producentów sprzedaje przez lokalnych dystrybutorów, z którymi utrzymuje bardzo silne relacje oparte na wyłączności. Ogranicza to szanse mniejszych, nowych hurtowni — prowadzonych m.in. przez Polaków, Hindusów czy Meksykanów.</p>
-
-  <div class="box callout-red">
-    <div class="box-title">Gdzie jest przestrzeń dla EZ COAT</div>
-    <p style="margin:0;">Mniejsze hurtownie to naturalni partnerzy projektu — nie mają dostępu do taniego, dobrego materiału od głównych graczy. Ich klienci (wykonawcy) najczęściej nie potrzebują pełnej dokumentacji i mogą kupować produkt typu <em>generic</em> (bez dodatkowych „papierów”), o ile jest dobry i tani.</p>
+  <div class="panel panel-dark">
+    <h4>Gdzie jest przestrzeń dla EZ COAT</h4>
+    <p style="margin:0;">Mniejsze hurtownie to naturalni partnerzy projektu — nie mają dostępu do taniego, dobrego materiału od głównych graczy. Ich klienci (wykonawcy) najczęściej nie potrzebują pełnej dokumentacji i mogą kupować produkt typu <strong>generic</strong>, o ile jest dobry i tani.</p>
   </div>
-
-  <div class="summary">
-    <div class="box-title">W skrócie</div>
-    <p style="margin:0;">Rynek jest duży, lecz zamknięty umowami na wyłączność sześciu korporacji. Luka rynkowa to niezależne, mniejsze hurtownie i wykonawcy poszukujący dobrego materiału w atrakcyjnej cenie — segment, w którym dokumentacja bywa drugorzędna wobec jakości i ceny.</p>
-  </div>
+  <div class="take"><p>Luką rynkową są niezależne hurtownie i wykonawcy odcięci od systemów sześciu dużych producentów — segment wrażliwy na jakość i cenę, mniej na formalną dokumentację.</p></div>
 </section>
 
-
 <!-- ===================== 4. ROZWIĄZANIE I PORTFOLIO ===================== -->
-<section class="page">
-  <div class="runhead"><span class="brand">EZ COAT / NEXTCOAT</span><span>4 — Rozwiązanie i portfolio</span></div>
-  <h2 class="section"><span class="num">4.</span><span>Rozwiązanie i portfolio produktów</span></h2>
-
+<section class="sec" id="s4">
+  <h2 class="sec"><span class="num">4.</span>Rozwiązanie i portfolio produktów</h2>
   <h3 class="sub"><span class="num">4.1.</span>Zakres zastosowań</h3>
   <p>EZ COAT będzie oferować w USA kompletną linię materiałów przeznaczonych do:</p>
-  <div class="cols2">
-    <div class="col" style="background:var(--white);border:none;padding:0;">
-      <ul style="margin:0;">
-        <li>systemów stucco,</li>
-        <li>systemów EIFS,</li>
-        <li>elewacji na płytach cementowych,</li>
-        <li>elewacji na podłożach mineralnych,</li>
-        <li>renowacji istniejących elewacji,</li>
-      </ul>
-    </div>
-    <div class="col" style="background:var(--white);border:none;padding:0;">
-      <ul style="margin:0;">
-        <li>wykonywania powłok wodoodpornych,</li>
-        <li>wykonywania dekoracyjnych powłok elewacyjnych,</li>
-        <li>montażu kamienia i płytek elewacyjnych,</li>
-        <li>zabezpieczania powierzchni betonowych i brukowych.</li>
-      </ul>
-    </div>
+  <div class="grid3">
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Systemy stucco</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Systemy EIFS</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Płyty cementowe</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Podłoża mineralne</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Renowacja elewacji</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Powłoki wodoodporne</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Powłoki dekoracyjne</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Montaż kamienia i płytek</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Zabezpieczanie betonu i bruku</span></div>
   </div>
 
   <h3 class="sub"><span class="num">4.2.</span>Podstawowe portfolio produktowe</h3>
   <table class="tbl">
     <caption>Grupy produktowe I–V</caption>
-    <thead>
-      <tr><th style="width:22%;">Grupa</th><th>Produkty</th></tr>
-    </thead>
+    <thead><tr><th style="width:22%;">Grupa</th><th>Produkty</th></tr></thead>
     <tbody>
-      <tr>
-        <td><span class="tag">Grupa I</span><br><strong>Produkty elewacyjne</strong></td>
-        <td>tynki akrylowe, tynki silikonowe, tynki elastyczne, farby elewacyjne, grunty, grunty wzmacniające, preparaty poprawiające przyczepność, masy naprawcze, produkty do renowacji elewacji</td>
-      </tr>
-      <tr>
-        <td><span class="tag">Grupa II</span><br><strong>Zabezpieczenie przed wodą</strong></td>
-        <td>elastyczne powłoki wodoodporne, produkty typu WeatherShield, hydroizolacje powierzchni pionowych, masy uszczelniające, impregnaty do betonu, impregnaty do kamienia, impregnaty do kostki brukowej</td>
-      </tr>
-      <tr>
-        <td><span class="tag">Grupa III</span><br><strong>Kleje i zaprawy</strong></td>
-        <td>kleje do siatki, kleje do płyt izolacyjnych, kleje do płytek, kleje do kamienia, kleje do okładzin elewacyjnych, zaprawy naprawcze, zaprawy wyrównujące</td>
-      </tr>
-      <tr>
-        <td><span class="tag">Grupa IV</span><br><strong>Systemy stucco</strong></td>
-        <td>tradycyjne tynki cementowe, monocouche (styl francuski lub angielski), gotowe mieszanki stucco, koncentraty cementowe do mieszania z lokalnym piaskiem, warstwy dekoracyjne, grunty i powłoki końcowe</td>
-      </tr>
-      <tr>
-        <td><span class="tag">Grupa V</span><br><strong>Posadzki i nawierzchnie</strong></td>
-        <td>masy samopoziomujące, zaprawy naprawcze, produkty do przygotowania podłoża, grunty do posadzek, impregnaty, powłoki zabezpieczające</td>
-      </tr>
+      <tr><td><span class="tag">Grupa I</span><br><strong>Produkty elewacyjne</strong></td><td>tynki akrylowe, tynki silikonowe, tynki elastyczne, farby elewacyjne, grunty, grunty wzmacniające, preparaty poprawiające przyczepność, masy naprawcze, produkty do renowacji elewacji</td></tr>
+      <tr><td><span class="tag">Grupa II</span><br><strong>Zabezpieczenie przed wodą</strong></td><td>elastyczne powłoki wodoodporne, produkty typu WeatherShield, hydroizolacje powierzchni pionowych, masy uszczelniające, impregnaty do betonu, kamienia i kostki brukowej</td></tr>
+      <tr><td><span class="tag">Grupa III</span><br><strong>Kleje i zaprawy</strong></td><td>kleje do siatki, do płyt izolacyjnych, do płytek, do kamienia i okładzin elewacyjnych, zaprawy naprawcze, zaprawy wyrównujące</td></tr>
+      <tr><td><span class="tag">Grupa IV</span><br><strong>Systemy stucco</strong></td><td>tradycyjne tynki cementowe, monocouche (styl francuski lub angielski), gotowe mieszanki stucco, koncentraty cementowe do mieszania z lokalnym piaskiem, warstwy dekoracyjne, grunty i powłoki końcowe</td></tr>
+      <tr><td><span class="tag">Grupa V</span><br><strong>Posadzki i nawierzchnie</strong></td><td>masy samopoziomujące, zaprawy naprawcze, produkty do przygotowania podłoża, grunty do posadzek, impregnaty, powłoki zabezpieczające</td></tr>
     </tbody>
   </table>
-</section>
-
-<section class="page">
-  <div class="runhead"><span class="brand">EZ COAT / NEXTCOAT</span><span>4 — Rozwiązanie i portfolio</span></div>
 
   <h3 class="sub"><span class="num">4.3.</span>Produkty uzupełniające</h3>
-  <p>EZ COAT może zwiększać wartość każdej sprzedaży poprzez oferowanie produktów uzupełniających:</p>
-  <div class="cols2">
-    <div class="col" style="background:var(--white);border:none;padding:0;">
-      <ul style="margin:0;">
-        <li>siatek zbrojących,</li>
-        <li>narożników,</li>
-        <li>listew startowych,</li>
-        <li>profili dylatacyjnych,</li>
-      </ul>
-    </div>
-    <div class="col" style="background:var(--white);border:none;padding:0;">
-      <ul style="margin:0;">
-        <li>profili okapnikowych,</li>
-        <li>wkrętów,</li>
-        <li>kołków,</li>
-        <li>taśm uszczelniających.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="box">
-    <div class="box-title">Zasada zaopatrzenia</div>
+  <p>EZ COAT może zwiększać wartość każdej sprzedaży poprzez produkty uzupełniające: siatki zbrojące, narożniki, listwy startowe, profile dylatacyjne i okapnikowe, wkręty, kołki oraz taśmy uszczelniające.</p>
+  <div class="panel">
+    <span class="pill muted">Zasada zaopatrzenia</span>
     <p style="margin:0;">Produkty uzupełniające mogą pochodzić zarówno z Polski, jak i od producentów amerykańskich — nie wszystkie muszą być importowane. Ciężkie i tanie produkty powinny w dalszym etapie być produkowane lub mieszane lokalnie w USA.</p>
   </div>
-
-  <div class="summary">
-    <div class="box-title">W skrócie</div>
-    <p style="margin:0;">Portfolio obejmuje pięć grup produktowych pokrywających pełny cykl prac elewacyjnych oraz akcesoria systemowe. Strategia zaopatrzenia zakłada import produktów o wysokiej wartości i lokalne pozyskiwanie/produkcję pozycji ciężkich i tanich.</p>
-  </div>
+  <div class="take"><p>Pięć grup produktowych pokrywa pełny cykl prac elewacyjnych; strategia zakłada import pozycji wysokomarżowych i lokalne pozyskiwanie produktów ciężkich i tanich.</p></div>
 </section>
 
-
-<!-- ===================== 5. PRODUKTY PRIORYTETOWE NA START ===================== -->
-<section class="page">
-  <div class="runhead"><span class="brand">EZ COAT / NEXTCOAT</span><span>5 — Produkty startowe</span></div>
-  <h2 class="section"><span class="num">5.</span><span>Produkty priorytetowe na start</span></h2>
-
+<!-- ===================== 5. PRODUKTY STARTOWE ===================== -->
+<section class="sec" id="s5">
+  <h2 class="sec"><span class="num">5.</span>Produkty priorytetowe na start</h2>
   <h3 class="sub"><span class="num">5.1.</span>Kryteria wyboru</h3>
-  <p>Nie rekomenduje się rozpoczynania sprzedaży od całego portfolio. Pierwszy etap powinien obejmować produkty o:</p>
-  <ul>
-    <li>stosunkowo wysokiej marży,</li>
-    <li>stosunkowo niskim udziale transportu w cenie,</li>
-    <li>wyraźnych przewagach rynkowych (dostępność, cena),</li>
-    <li>możliwości sprzedaży w zestawach.</li>
-  </ul>
-
+  <div class="grid2">
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Stosunkowo wysoka marża</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Niski udział transportu w cenie</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Wyraźne przewagi rynkowe (dostępność, cena)</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Możliwość sprzedaży w zestawach</span></div>
+  </div>
   <h3 class="sub"><span class="num">5.2.</span>Rekomendowane produkty startowe</h3>
   <table class="tbl">
     <caption>Zestaw startowy EZ COAT</caption>
-    <thead><tr><th style="width:38%;">Produkt</th><th>Opis</th></tr></thead>
+    <thead><tr><th style="width:40%;">Produkt</th><th>Opis</th></tr></thead>
     <tbody>
       <tr><td><strong>EZ COAT WeatherShield</strong></td><td>Elastyczna powłoka zabezpieczająca przed wodą</td></tr>
       <tr><td><strong>EZ COAT Silicone Exterior Paint</strong></td><td>Wysokiej jakości silikonowa farba elewacyjna</td></tr>
@@ -505,109 +381,45 @@ ul.check li:before{content:"▸";position:absolute;left:4px;color:var(--red);fon
       <tr><td><strong>EZ COAT Stone Protector</strong></td><td>Impregnat do kamienia i betonu</td></tr>
     </tbody>
   </table>
-
   <h3 class="sub"><span class="num">5.3.</span>Uzasadnienie doboru</h3>
-  <p>Podstawowy klej do siatki i tynk akrylowy mogą generować umiarkowaną marżę, ale stanowią nośnik wejścia na rynek — są produktami powszechnie stosowanymi. Najwyższy potencjał marżowy mogą mieć:</p>
-  <ul>
-    <li>powłoki wodoodporne,</li>
-    <li>farby elewacyjne,</li>
-    <li>pigmenty i kolorowanie,</li>
-    <li>akcesoria systemowe.</li>
-  </ul>
-
-  <div class="summary">
-    <div class="box-title">W skrócie</div>
-    <p style="margin:0;">Start obejmuje 8 produktów łączących pozycje wolumenowe (klej, tynk akrylowy — wejście na rynek) z pozycjami wysokomarżowymi (powłoki wodoodporne, farby, impregnaty), sprzedawanymi w logice zestawów systemowych.</p>
-  </div>
+  <p>Podstawowy klej do siatki i tynk akrylowy generują umiarkowaną marżę, ale stanowią nośnik wejścia na rynek — są produktami powszechnie stosowanymi. Najwyższy potencjał marżowy mają: powłoki wodoodporne, farby elewacyjne, pigmenty i kolorowanie oraz akcesoria systemowe.</p>
+  <div class="take"><p>Zestaw startowy łączy produkty wolumenowe otwierające rynek z pozycjami wysokomarżowymi, sprzedawanymi w logice systemu.</p></div>
 </section>
 
-<!-- ===================== 6. EKONOMIKA PRODUKTÓW ===================== -->
-<section class="page">
-  <div class="runhead"><span class="brand">EZ COAT / NEXTCOAT</span><span>6 — Ekonomika produktów</span></div>
-  <h2 class="section"><span class="num">6.</span><span>Ekonomika produktów</span></h2>
-
-  <div class="assumption">
-    Poniższe liczby są wstępnymi założeniami opartymi na obecnych kalkulacjach EZ COAT. Wymagają potwierdzenia poprzez rzeczywiste oferty transportowe, taryfy celne, stawki magazynowe oraz wyceny producentów.
+<!-- ===================== 6. EKONOMIKA ===================== -->
+<section class="sec" id="s6">
+  <h2 class="sec"><span class="num">6.</span>Ekonomika produktów</h2>
+  <div class="note">
+    <span class="pill">Założenie do potwierdzenia</span>
+    <p>Poniższe liczby są wstępnymi założeniami opartymi na obecnych kalkulacjach EZ COAT. Wymagają potwierdzenia poprzez rzeczywiste oferty transportowe, taryfy celne, stawki magazynowe oraz wyceny producentów.</p>
   </div>
-
   <table class="tbl">
     <caption>Przykładowa ekonomika produktów (USD, wartości orientacyjne)</caption>
-    <thead>
-      <tr>
-        <th style="width:26%;">Produkt</th>
-        <th class="num">Produkcja w PL</th>
-        <th class="num">Transport</th>
-        <th class="num">Koszt dostarczony do USA</th>
-        <th class="num">Cena hurtowa / do dystrybutora</th>
-        <th class="num">Cena detaliczna</th>
-      </tr>
-    </thead>
+    <thead><tr>
+      <th style="width:26%;">Produkt</th><th class="num">Produkcja PL</th><th class="num">Transport</th>
+      <th class="num">Dostarczony do USA</th><th class="num">Hurt / dystrybutor</th><th class="num">Detal</th>
+    </tr></thead>
     <tbody>
-      <tr>
-        <td><strong>Tynk akrylowy</strong> 65 lbs</td>
-        <td class="num">~17</td>
-        <td class="num">~7 / wiadro</td>
-        <td class="num">~29–34</td>
-        <td class="num">~50–60</td>
-        <td class="num">~100–120</td>
-      </tr>
-      <tr>
-        <td><strong>Tynk silikonowy</strong> 65 lbs</td>
-        <td class="num">~o 3 wyżej niż akrylowy</td>
-        <td class="num">—</td>
-        <td class="num">—</td>
-        <td class="num">~o 7–20 wyżej niż akrylowy</td>
-        <td class="num">—</td>
-      </tr>
-      <tr>
-        <td><strong>Farba elewacyjna</strong> 5 gal</td>
-        <td class="num">~48<sup>†</sup></td>
-        <td class="num">~7</td>
-        <td class="num">~55</td>
-        <td class="num">~100–120</td>
-        <td class="num">~200–220</td>
-      </tr>
-      <tr>
-        <td><strong>WeatherShield</strong> 5 gal</td>
-        <td class="num">~56<sup>†</sup></td>
-        <td class="num">~6</td>
-        <td class="num">~62</td>
-        <td class="num">~105</td>
-        <td class="num">~200–220<sup>‡</sup></td>
-      </tr>
-      <tr>
-        <td><strong>Klej do siatki</strong></td>
-        <td class="num">~4</td>
-        <td class="num">~5,50</td>
-        <td class="num">~9,50<sup>§</sup></td>
-        <td class="num">~12–15</td>
-        <td class="num">—</td>
-      </tr>
+      <tr><td><strong>Tynk akrylowy</strong> 65 lbs</td><td class="num">~17</td><td class="num">~7 / wiadro</td><td class="num">~29–34</td><td class="num">~50–60</td><td class="num">~100–120</td></tr>
+      <tr><td><strong>Tynk silikonowy</strong> 65 lbs</td><td class="num">~o 3 wyżej</td><td class="num">—</td><td class="num">—</td><td class="num">~o 7–20 wyżej</td><td class="num">—</td></tr>
+      <tr><td><strong>Farba elewacyjna</strong> 5 gal</td><td class="num">~48<sup>†</sup></td><td class="num">~7</td><td class="num">~55</td><td class="num">~100–120</td><td class="num">~200–220</td></tr>
+      <tr><td><strong>WeatherShield</strong> 5 gal</td><td class="num">~56<sup>†</sup></td><td class="num">~6</td><td class="num">~62</td><td class="num">~105</td><td class="num">~200–220<sup>‡</sup></td></tr>
+      <tr><td><strong>Klej do siatki</strong></td><td class="num">~4</td><td class="num">~5,50</td><td class="num">~9,50<sup>§</sup></td><td class="num">~12–15</td><td class="num">—</td></tr>
     </tbody>
   </table>
-  <p class="small">
-    <sup>†</sup> Koszt produkcji i konfekcjonowania. &nbsp;
-    <sup>‡</sup> Cena dla wykonawcy: ~145–165 USD. &nbsp;
-    <sup>§</sup> Koszt dostarczony przed magazynem i obsługą. &nbsp;
-    Dla tynku akrylowego marża producenta i przygotowanie eksportowe: ~5–10 USD. &nbsp;
-    Tynk silikonowy: wyższa marża i lepsze pozycjonowanie produktu.
-  </p>
-
-  <div class="box callout-navy">
-    <div class="box-title">Rola kleju do siatki</div>
-    <p style="margin:0;">Klej do siatki może być produktem o niższej marży procentowej, ale: wypełnia wolne miejsce w kontenerze, zwiększa wartość całego systemu, wspiera sprzedaż tynków, gruntów i siatki oraz zmniejsza ryzyko stosowania niekompatybilnych produktów.</p>
+  <p class="small"><sup>†</sup> Koszt produkcji i konfekcjonowania. &nbsp; <sup>‡</sup> Cena dla wykonawcy: ~145–165 USD. &nbsp; <sup>§</sup> Koszt dostarczony przed magazynem i obsługą. &nbsp; Tynk akrylowy: marża i przygotowanie eksportowe ~5–10 USD. Tynk silikonowy: wyższa marża i lepsze pozycjonowanie względem akrylowego.</p>
+  <div class="panel panel-dark">
+    <h4>Rola kleju do siatki</h4>
+    <p style="margin:0;">Produkt o niższej marży procentowej, ale: wypełnia wolne miejsce w kontenerze, zwiększa wartość całego systemu, wspiera sprzedaż tynków, gruntów i siatki oraz zmniejsza ryzyko stosowania niekompatybilnych produktów.</p>
   </div>
-  <p class="small">Założenia produktowe i transportowe wynikają z materiału roboczego przygotowanego dla projektu USA.</p>
+  <div class="take"><p>Najwyższy potencjał marży dają powłoki wodoodporne i farby; produkty wolumenowe pełnią rolę wejścia na rynek i wypełnienia kontenera.</p></div>
 </section>
 
 
-<!-- ===================== 7. LOGISTYKA KONTENEROWA ===================== -->
-<section class="page">
-  <div class="runhead"><span class="brand">EZ COAT / NEXTCOAT</span><span>7 — Logistyka kontenerowa</span></div>
-  <h2 class="section"><span class="num">7.</span><span>Logistyka kontenerowa</span></h2>
-
+<!-- ===================== 7. LOGISTYKA ===================== -->
+<section class="sec" id="s7">
+  <h2 class="sec"><span class="num">7.</span>Logistyka kontenerowa</h2>
   <p>Model początkowy zakłada produkcję wszystkich podstawowych produktów w Polsce i transport do USA pełnymi kontenerami.</p>
-
   <table class="tbl">
     <caption>Szacunkowe koszty jednego transportu kontenerowego (USD)</caption>
     <thead><tr><th>Pozycja kosztowa</th><th class="num">Koszt orientacyjny</th></tr></thead>
@@ -616,734 +428,285 @@ ul.check li:before{content:"▸";position:absolute;left:4px;color:var(--red);fon
       <tr><td>Fracht morski</td><td class="num">~2 000</td></tr>
       <tr><td>Transport z portu do magazynu w USA</td><td class="num">~1 000</td></tr>
       <tr><td>Pozostałe koszty portowe, dokumentacyjne i rezerwa</td><td class="num">~1 000</td></tr>
-      <tr style="font-weight:800;background:var(--amber-tint);">
-        <td>Łączny wstępny koszt na kontener</td><td class="num">~4 000–5 000</td></tr>
+      <tr class="hl-row"><td>Łączny wstępny koszt na kontener</td><td class="num">~4 000–5 000</td></tr>
     </tbody>
   </table>
-
-  <div class="box">
-    <div class="box-title">Pojemność kontenera</div>
-    <p style="margin:0 0 6px 0;">Orientacyjnie ~500–600 dużych wiader w kontenerze, zależnie od:</p>
-    <ul style="margin:0;">
-      <li>masy produktu,</li>
-      <li>rodzaju palet,</li>
-      <li>ograniczenia wagowego kontenera,</li>
-      <li>sposobu transportu ładunku w USA (dobór naczepy pod kontenerem, trasa przejazdu).</li>
-    </ul>
+  <div class="panel">
+    <span class="pill muted">Pojemność kontenera</span>
+    <p style="margin:0;">Orientacyjnie ~500–600 dużych wiader, zależnie od masy produktu, rodzaju palet, ograniczenia wagowego kontenera oraz sposobu transportu ładunku w USA (dobór naczepy pod kontenerem, trasa przejazdu).</p>
   </div>
-
-  <div class="assumption">
-    Koszty transportu są wartościami orientacyjnymi i wymagają potwierdzenia rzeczywistymi ofertami przewoźników, taryfami celnymi i stawkami portowymi.
+  <div class="note">
+    <span class="pill">Założenie do potwierdzenia</span>
+    <p>Koszty transportu są wartościami orientacyjnymi i wymagają potwierdzenia rzeczywistymi ofertami przewoźników, taryfami celnymi i stawkami portowymi.</p>
   </div>
-
-  <div class="summary">
-    <div class="box-title">W skrócie</div>
-    <p style="margin:0;">Jednostkowy koszt logistyki to ~4 000–5 000 USD na kontener mieszczący ~500–600 dużych wiader — parametr kluczowy dla kalkulacji ceny dostarczonej i doboru produktów startowych o niskim udziale transportu.</p>
-  </div>
+  <div class="take"><p>Koszt logistyki na kontener determinuje dobór produktów startowych — priorytet mają pozycje o niskim udziale transportu w cenie.</p></div>
 </section>
 
-<!-- ===================== 8. MODEL BIZNESOWY W USA ===================== -->
-<section class="page">
-  <div class="runhead"><span class="brand">EZ COAT / NEXTCOAT</span><span>8 — Model biznesowy w USA</span></div>
-  <h2 class="section"><span class="num">8.</span><span>Model biznesowy w USA</span></h2>
-
+<!-- ===================== 8. MODEL USA ===================== -->
+<section class="sec" id="s8">
+  <h2 class="sec"><span class="num">8.</span>Model biznesowy w USA</h2>
   <h3 class="sub"><span class="num">8.1.</span>Rola EZ COAT USA</h3>
-  <p>Podmiot EZ COAT USA powinien działać jako:</p>
-  <div class="cols2">
-    <div class="col" style="background:var(--white);border:none;padding:0;">
-      <ul style="margin:0;">
-        <li>właściciel lub licencjobiorca marki na rynek USA,</li>
-        <li>importer produktów,</li>
-        <li>właściciel dokumentacji technicznej,</li>
-        <li>centrum sprzedaży i marketingu,</li>
-      </ul>
-    </div>
-    <div class="col" style="background:var(--white);border:none;padding:0;">
-      <ul style="margin:0;">
-        <li>magazyn lub operator magazynowy,</li>
-        <li>dostawca kompletnego systemu,</li>
-        <li>organizator sieci wykonawców i dystrybutorów.</li>
-      </ul>
-    </div>
+  <div class="grid2">
+    <div class="fcard"><span class="ic">◆</span><span class="tx">Właściciel lub licencjobiorca marki na rynek USA</span></div>
+    <div class="fcard"><span class="ic">◆</span><span class="tx">Importer produktów</span></div>
+    <div class="fcard"><span class="ic">◆</span><span class="tx">Właściciel dokumentacji technicznej</span></div>
+    <div class="fcard"><span class="ic">◆</span><span class="tx">Centrum sprzedaży i marketingu</span></div>
+    <div class="fcard"><span class="ic">◆</span><span class="tx">Magazyn lub operator magazynowy</span></div>
+    <div class="fcard"><span class="ic">◆</span><span class="tx">Dostawca kompletnego systemu i organizator sieci</span></div>
   </div>
-
   <h3 class="sub"><span class="num">8.2.</span>Kanały sprzedaży</h3>
   <table class="tbl">
     <caption>Kanały sprzedaży EZ COAT USA</caption>
-    <thead><tr><th style="width:28%;">Kanał</th><th>Charakterystyka</th></tr></thead>
+    <thead><tr><th style="width:30%;">Kanał</th><th>Charakterystyka</th></tr></thead>
     <tbody>
       <tr><td><span class="tag">1</span> <strong>Wykonawcy elewacji</strong></td><td>Kanał startowy; docelowo przekazanie obsługi do hurtowni</td></tr>
-      <tr><td><span class="tag">2</span> <strong>Hurtownie budowlane</strong></td><td>Małe hurtownie bez dostępu „z pierwszej ręki” do systemów wiodących</td></tr>
+      <tr><td><span class="tag">2</span> <strong>Hurtownie budowlane</strong></td><td>Małe hurtownie bez dostępu „z pierwszej ręki" do systemów wiodących</td></tr>
       <tr><td><span class="tag">3</span> <strong>Sprzedaż internetowa</strong></td><td>Sprzedaż próbek oraz produktów</td></tr>
       <tr><td><span class="tag">4</span> <strong>Projekty inwestycyjne</strong></td><td>Wynikają z oferty drogich systemów dostępnych w atrakcyjnej cenie</td></tr>
     </tbody>
   </table>
-
-  <div class="summary">
-    <div class="box-title">W skrócie</div>
-    <p style="margin:0;">EZ COAT USA pełni funkcję importera, właściciela dokumentacji, centrum marketingu i operatora systemu dystrybucji. Sprzedaż startuje od wykonawców, a następnie rozwija się przez hurtownie, kanał internetowy i projekty inwestycyjne.</p>
-  </div>
+  <div class="take"><p>EZ COAT USA to importer i właściciel dokumentacji oraz operator systemu dystrybucji; sprzedaż startuje od wykonawców i rozwija się do hurtowni, kanału online i projektów inwestycyjnych.</p></div>
 </section>
 
-
 <!-- ===================== 9. WSPÓŁPRACA PARTNERÓW ===================== -->
-<section class="page">
-  <div class="runhead"><span class="brand">EZ COAT / NEXTCOAT</span><span>9 — Współpraca partnerów</span></div>
-  <h2 class="section"><span class="num">9.</span><span>Współpraca partnera polskiego i amerykańskiego</span></h2>
-
+<section class="sec" id="s9">
+  <h2 class="sec"><span class="num">9.</span>Współpraca partnera polskiego i amerykańskiego</h2>
   <table class="tbl">
     <caption>Podział odpowiedzialności Polska – USA</caption>
-    <thead>
-      <tr>
-        <th style="width:50%;background:var(--red);border-color:var(--red);">Partner amerykański zapewnia</th>
-        <th style="width:50%;">Partner polski zapewnia</th>
-      </tr>
-    </thead>
+    <thead><tr><th style="width:50%;">Partner amerykański zapewnia</th><th style="width:50%;">Partner polski zapewnia</th></tr></thead>
     <tbody>
       <tr>
-        <td>
-          <ul style="margin:0;">
-            <li>kapitał początkowy,</li>
-            <li>organizację spółki operacyjnej w USA,</li>
-            <li>dostęp do magazynu,</li>
-            <li>lokalną logistykę,</li>
-            <li>kontakty sprzedażowe,</li>
-            <li>wsparcie prawne i księgowe,</li>
-            <li>znajomość lokalnego rynku,</li>
-            <li>możliwość zatrudnienia pierwszych handlowców,</li>
-            <li>pomoc w wejściu do hurtowni.</li>
-          </ul>
-        </td>
-        <td>
-          <ul style="margin:0;">
-            <li>receptury,</li>
-            <li>technologię produkcji,</li>
-            <li>nadzór nad produkcją,</li>
-            <li>kontrolę jakości,</li>
-            <li>dokumentację produktową,</li>
-            <li>projekt opakowań,</li>
-            <li>wzorniki,</li>
-            <li>materiały marketingowe,</li>
-            <li>szkolenia techniczne,</li>
-            <li>rozwój kolejnych produktów,</li>
-            <li>przygotowanie dostaw kontenerowych.</li>
-          </ul>
-        </td>
+        <td><ul style="margin:0;padding-left:16px;"><li>kapitał początkowy,</li><li>organizację spółki operacyjnej w USA,</li><li>dostęp do magazynu,</li><li>lokalną logistykę,</li><li>kontakty sprzedażowe,</li><li>wsparcie prawne i księgowe,</li><li>znajomość lokalnego rynku,</li><li>możliwość zatrudnienia pierwszych handlowców,</li><li>pomoc w wejściu do hurtowni.</li></ul></td>
+        <td><ul style="margin:0;padding-left:16px;"><li>receptury,</li><li>technologię produkcji,</li><li>nadzór nad produkcją,</li><li>kontrolę jakości,</li><li>dokumentację produktową,</li><li>projekt opakowań i wzorniki,</li><li>materiały marketingowe,</li><li>szkolenia techniczne,</li><li>rozwój kolejnych produktów,</li><li>przygotowanie dostaw kontenerowych.</li></ul></td>
       </tr>
     </tbody>
   </table>
-
-  <div class="summary">
-    <div class="box-title">W skrócie</div>
-    <p style="margin:0;">Partner amerykański odpowiada za kapitał, spółkę, logistykę i sprzedaż lokalną; partner polski — za technologię, produkcję, jakość, dokumentację i rozwój produktów. Podział łączy know-how europejskie z dostępem do rynku USA.</p>
-  </div>
+  <div class="take"><p>Strona polska wnosi technologię, produkcję, jakość i dokumentację; strona amerykańska — kapitał, spółkę, logistykę i dostęp do rynku.</p></div>
 </section>
 
-<!-- ===================== 10. WSPARCIE SPRZEDAŻY PRZEZ AI ===================== -->
-<section class="page">
-  <div class="runhead"><span class="brand">EZ COAT / NEXTCOAT</span><span>10 — Wsparcie sprzedaży przez AI</span></div>
-  <h2 class="section"><span class="num">10.</span><span>Wsparcie sprzedaży przez AI</span></h2>
-
+<!-- ===================== 10. AI ===================== -->
+<section class="sec" id="s10">
+  <h2 class="sec"><span class="num">10.</span>Wsparcie sprzedaży przez AI</h2>
   <p>Narzędzia AI mają zwiększać skuteczność sprzedaży oraz ograniczać koszt jej budowy.</p>
-
-  <h3 class="sub"><span class="num">10.1.</span>Budowa bazy potencjalnych klientów</h3>
   <div class="cols2">
-    <div class="col">
-      <h4>System będzie wyszukiwał</h4>
-      <ul style="margin:0;">
-        <li>wykonawców stucco i EIFS,</li>
-        <li>firmy elewacyjne,</li>
-        <li>dystrybutorów i hurtownie,</li>
-        <li>firmy renowacyjne,</li>
-        <li>architektów,</li>
-        <li>generalnych wykonawców,</li>
-        <li>producentów prefabrykatów.</li>
-      </ul>
-    </div>
-    <div class="col">
-      <h4>Baza będzie zawierać m.in.</h4>
-      <ul style="margin:0;">
-        <li>nazwę firmy, lokalizację, specjalizację,</li>
-        <li>stronę internetową, telefon, e-mail,</li>
-        <li>profile społecznościowe,</li>
-        <li>osoby decyzyjne,</li>
-        <li>ocenę potencjału klienta,</li>
-        <li>historię kontaktów.</li>
-      </ul>
-    </div>
+    <div class="col-card"><h4>10.1 · Budowa bazy klientów</h4><p style="margin:0;">Wyszukiwanie wykonawców stucco i EIFS, firm elewacyjnych, dystrybutorów, hurtowni, firm renowacyjnych, architektów, generalnych wykonawców i producentów prefabrykatów. Baza zawiera m.in. dane kontaktowe, specjalizację, osoby decyzyjne, ocenę potencjału i historię kontaktów.</p></div>
+    <div class="col-card"><h4>10.2 · Personalizacja kontaktu</h4><p style="margin:0;">Przygotowywanie wiadomości e-mail i LinkedIn, ofert, prezentacji, follow-upów, treści dla konkretnych branż oraz propozycji zestawów produktowych.</p></div>
+    <div class="col-card"><h4>10.3 · Media społecznościowe</h4><p style="margin:0;">Tworzenie filmów instruktażowych, grafik porównawczych, postów dla wykonawców, studiów przypadków, materiałów „przed i po", porad wykonawczych, kampanii reklamowych i newsletterów.</p></div>
+    <div class="col-card"><h4>10.4 · Obsługa handlowa (CRM)</h4><p style="margin:0;">Przypominanie o kontaktach, kwalifikacja leadów, ocena prawdopodobieństwa zakupu, propozycje kolejnych działań, podsumowania rozmów i analiza skuteczności handlowców.</p></div>
   </div>
-
-  <h3 class="sub"><span class="num">10.2.</span>Personalizacja kontaktu</h3>
-  <p>AI będzie wspierać przygotowywanie: wiadomości e-mail, wiadomości na LinkedIn, ofert, prezentacji, follow-upów, treści dla konkretnych branż oraz propozycji zestawów produktowych.</p>
-
-  <h3 class="sub"><span class="num">10.3.</span>Media społecznościowe</h3>
-  <p>AI pomoże w tworzeniu: filmów instruktażowych, grafik porównawczych, postów dla wykonawców, studiów przypadków, materiałów „przed i po”, porad wykonawczych, kampanii reklamowych oraz newsletterów.</p>
-
-  <h3 class="sub"><span class="num">10.4.</span>Obsługa handlowa</h3>
-  <p>System CRM wspierany przez AI będzie: przypominał o kolejnych kontaktach, kwalifikował leady, oceniał prawdopodobieństwo zakupu, proponował kolejne działania, przygotowywał podsumowania rozmów oraz analizował skuteczność handlowców.</p>
-
-  <div class="summary">
-    <div class="box-title">W skrócie</div>
-    <p style="margin:0;">AI obejmuje cztery obszary: budowę bazy klientów, personalizację kontaktu, produkcję treści marketingowych i obsługę handlową w CRM — z celem zwiększenia skuteczności i obniżenia kosztu pozyskania klienta.</p>
-  </div>
+  <div class="take"><p>AI obniża koszt pozyskania klienta w czterech obszarach: baza klientów, personalizacja kontaktu, produkcja treści i obsługa handlowa w CRM.</p></div>
 </section>
 
-
-<!-- ===================== 11. ZAPOTRZEBOWANIE FINANSOWE ===================== -->
-<section class="page">
-  <div class="runhead"><span class="brand">EZ COAT / NEXTCOAT</span><span>11 — Zapotrzebowanie finansowe</span></div>
-  <h2 class="section"><span class="num">11.</span><span>Zapotrzebowanie finansowe</span></h2>
-
+<!-- ===================== 11. FINANSE ===================== -->
+<section class="sec" id="s11">
+  <h2 class="sec"><span class="num">11.</span>Zapotrzebowanie finansowe</h2>
   <p>Wariant pilotażowy obejmuje cztery kategorie nakładów:</p>
-
   <table class="tbl">
     <caption>Zapotrzebowanie finansowe — wariant pilotażowy</caption>
-    <thead><tr><th style="width:48%;">Kategoria</th><th class="num">Kwota (USD)</th></tr></thead>
+    <thead><tr><th style="width:52%;">Kategoria</th><th class="num">Kwota (USD)</th></tr></thead>
     <tbody>
       <tr><td><strong>Towar i logistyka</strong></td><td class="num">do uzupełnienia</td></tr>
       <tr><td><strong>Dokumentacja i przygotowanie produktów</strong></td><td class="num">do uzupełnienia</td></tr>
       <tr><td><strong>Organizacja w USA</strong></td><td class="num">do uzupełnienia</td></tr>
       <tr><td><strong>Sprzedaż i marketing</strong></td><td class="num">do uzupełnienia</td></tr>
-      <tr style="font-weight:800;background:var(--tint);"><td>Razem — wariant pilotażowy</td><td class="num">do uzupełnienia</td></tr>
+      <tr class="hl-row"><td>Razem — wariant pilotażowy</td><td class="num">do uzupełnienia</td></tr>
     </tbody>
   </table>
-
-  <div class="todo">
-    Materiał źródłowy określa kategorie nakładów wariantu pilotażowego, lecz nie podaje przypisanych do nich kwot. Konkretne wartości dla poszczególnych pozycji oraz suma całkowita wymagają uzupełnienia i potwierdzenia (oferty produkcyjne, transportowe, koszty organizacji spółki i budżet marketingowy).
+  <div class="note">
+    <span class="pill muted">Dane do uzupełnienia</span>
+    <p>Materiał źródłowy określa kategorie nakładów wariantu pilotażowego, lecz nie podaje przypisanych do nich kwot. Konkretne wartości oraz suma całkowita wymagają uzupełnienia (oferty produkcyjne i transportowe, koszty organizacji spółki, budżet marketingowy).</p>
   </div>
-
-  <div class="summary">
-    <div class="box-title">W skrócie</div>
-    <p style="margin:0;">Struktura zapotrzebowania finansowego jest zdefiniowana (towar i logistyka, dokumentacja, organizacja w USA, sprzedaż i marketing). Kwoty pozostają do ustalenia — to kluczowy element do domknięcia przed decyzją inwestycyjną.</p>
-  </div>
+  <div class="take"><p>Struktura nakładów jest zdefiniowana; przypisanie kwot to warunek konieczny przed decyzją inwestycyjną.</p></div>
 </section>
 
-<!-- ===================== 12. ORGANIZACJA W POLSCE I USA ===================== -->
-<section class="page">
-  <div class="runhead"><span class="brand">EZ COAT / NEXTCOAT</span><span>12 — Organizacja PL i USA</span></div>
-  <h2 class="section"><span class="num">12.</span><span>Organizacja w Polsce i USA</span></h2>
-
+<!-- ===================== 12. ORGANIZACJA ===================== -->
+<section class="sec" id="s12">
+  <h2 class="sec"><span class="num">12.</span>Organizacja w Polsce i USA</h2>
   <h3 class="sub"><span class="num">12.1.</span>Organizacja w Polsce</h3>
   <div class="cols2">
-    <div class="col">
-      <h4>Produkcja</h4>
-      <ul style="margin:0;">
-        <li>wybór jednej lub kilku fabryk,</li>
-        <li>zawarcie umów produkcyjnych,</li>
-        <li>zabezpieczenie własności receptur,</li>
-        <li>procedury kontroli jakości,</li>
-        <li>identyfikowalność partii produkcyjnych,</li>
-        <li>przechowywanie próbek referencyjnych,</li>
-        <li>procedury reklamacyjne,</li>
-        <li>zabezpieczenie ciągłości dostaw.</li>
-      </ul>
-    </div>
-    <div class="col">
-      <h4>Dokumentacja</h4>
-      <ul style="margin:0;">
-        <li>receptury produkcyjne,</li>
-        <li>specyfikacje i certyfikaty surowców,</li>
-        <li>karty techniczne i charakterystyki,</li>
-        <li>wyniki badań,</li>
-        <li>instrukcje stosowania,</li>
-        <li>deklarowane zużycie,</li>
-        <li>warunki przechowywania,</li>
-        <li>okres przydatności.</li>
-      </ul>
-    </div>
+    <div class="col-card"><h4>Produkcja</h4><ul style="margin:0;padding-left:16px;"><li>wybór jednej lub kilku fabryk,</li><li>umowy produkcyjne,</li><li>zabezpieczenie własności receptur,</li><li>procedury kontroli jakości,</li><li>identyfikowalność partii,</li><li>próbki referencyjne,</li><li>procedury reklamacyjne,</li><li>ciągłość dostaw.</li></ul></div>
+    <div class="col-card"><h4>Dokumentacja</h4><ul style="margin:0;padding-left:16px;"><li>receptury produkcyjne,</li><li>specyfikacje i certyfikaty surowców,</li><li>karty techniczne i charakterystyki,</li><li>wyniki badań,</li><li>instrukcje stosowania,</li><li>deklarowane zużycie,</li><li>warunki przechowywania,</li><li>okres przydatności.</li></ul></div>
+    <div class="col-card"><h4>Logistyka eksportowa</h4><ul style="margin:0;padding-left:16px;"><li>opakowania do transportu morskiego,</li><li>odporne etykiety,</li><li>zabezpieczenie przed przemarzaniem i przegrzaniem,</li><li>paletyzacja,</li><li>plomby i numery partii,</li><li>dokumenty eksportowe,</li><li>kontrola wagi kontenera.</li></ul></div>
+    <div class="col-card"><h4>Zespół polski</h4><ul style="margin:0;padding-left:16px;"><li>technolog chemii budowlanej,</li><li>osoba ds. kontroli jakości,</li><li>koordynator produkcji,</li><li>koordynator eksportu,</li><li>grafik / osoba ds. opakowań,</li><li>osoba zarządzająca dokumentacją.</li></ul></div>
   </div>
-  <div class="cols2" style="margin-top:14px;">
-    <div class="col">
-      <h4>Logistyka eksportowa</h4>
-      <ul style="margin:0;">
-        <li>opakowania do transportu morskiego,</li>
-        <li>odporne etykiety,</li>
-        <li>zabezpieczenie przed przemarzaniem i przegrzaniem,</li>
-        <li>paletyzacja,</li>
-        <li>plomby i numery partii,</li>
-        <li>dokumenty eksportowe,</li>
-        <li>kontrola wagi kontenera.</li>
-      </ul>
-    </div>
-    <div class="col">
-      <h4>Zespół polski</h4>
-      <ul style="margin:0;">
-        <li>technolog chemii budowlanej,</li>
-        <li>osoba ds. kontroli jakości,</li>
-        <li>koordynator produkcji,</li>
-        <li>koordynator eksportu,</li>
-        <li>grafik / osoba ds. opakowań,</li>
-        <li>osoba zarządzająca dokumentacją.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="page">
-  <div class="runhead"><span class="brand">EZ COAT / NEXTCOAT</span><span>12 — Organizacja PL i USA</span></div>
-
   <h3 class="sub"><span class="num">12.2.</span>Organizacja w USA</h3>
   <div class="cols2">
-    <div class="col" style="background:var(--white);border:none;padding:0;">
-      <ul style="margin:0;">
-        <li>spółka operacyjna,</li>
-        <li>adres i telefon podmiotu odpowiedzialnego,</li>
-        <li><em>importer of record</em>,</li>
-        <li><em>customs broker</em>,</li>
-        <li>magazyn,</li>
-        <li>operator dostaw lokalnych,</li>
-        <li>księgowość,</li>
-        <li>prawnik,</li>
-        <li>ubezpieczenie odpowiedzialności produktowej,</li>
-      </ul>
-    </div>
-    <div class="col" style="background:var(--white);border:none;padding:0;">
-      <ul style="margin:0;">
-        <li>CRM,</li>
-        <li>przedstawiciel techniczny,</li>
-        <li>przedstawiciel handlowy,</li>
-        <li>sieć wykonawców testowych,</li>
-        <li>procedura reklamacyjna,</li>
-        <li>system numerowania i śledzenia partii,</li>
-        <li>procedura wycofania produktu z rynku.</li>
-      </ul>
-    </div>
+    <div class="col-card"><ul style="margin:0;padding-left:16px;"><li>spółka operacyjna,</li><li>adres i telefon podmiotu odpowiedzialnego,</li><li><em>importer of record</em>,</li><li><em>customs broker</em>,</li><li>magazyn,</li><li>operator dostaw lokalnych,</li><li>księgowość,</li><li>prawnik,</li><li>ubezpieczenie odpowiedzialności produktowej.</li></ul></div>
+    <div class="col-card"><ul style="margin:0;padding-left:16px;"><li>CRM,</li><li>przedstawiciel techniczny,</li><li>przedstawiciel handlowy,</li><li>sieć wykonawców testowych,</li><li>procedura reklamacyjna,</li><li>system numerowania i śledzenia partii,</li><li>procedura wycofania produktu z rynku.</li></ul></div>
   </div>
-
-  <div class="box callout-red">
-    <div class="box-title">Wymóg regulacyjny (OSHA)</div>
-    <p style="margin:0;">Dla produktów zaklasyfikowanych jako niebezpieczne producent lub importer musi przygotować odpowiednie etykiety i karty SDS. OSHA wskazuje również, że dla objętych przepisami produktów wymagane są dane podmiotu odpowiedzialnego, w tym amerykański adres i numer telefonu.</p>
+  <div class="panel panel-dark">
+    <h4>Wymóg regulacyjny (OSHA)</h4>
+    <p style="margin:0;">Dla produktów zaklasyfikowanych jako niebezpieczne producent lub importer musi przygotować odpowiednie etykiety i karty SDS. OSHA wymaga również danych podmiotu odpowiedzialnego, w tym amerykańskiego adresu i numeru telefonu.</p>
   </div>
-
-  <div class="summary">
-    <div class="box-title">W skrócie</div>
-    <p style="margin:0;">Strona polska buduje zaplecze produkcyjno-technologiczne i eksportowe; strona amerykańska — pełną strukturę operacyjną importera (spółka, magazyn, obsługa celna, prawna i handlowa) wraz z wymaganymi elementami zgodności regulacyjnej.</p>
-  </div>
+  <div class="take"><p>Zaplecze produkcyjno-technologiczne powstaje w Polsce, pełna struktura operacyjna importera — w USA, wraz z wymaganiami zgodności (OSHA/SDS).</p></div>
 </section>
 
 
-<!-- ===================== 13. DOKUMENTACJA I WYMAGANIA REGULACYJNE ===================== -->
-<section class="page">
-  <div class="runhead"><span class="brand">EZ COAT / NEXTCOAT</span><span>13 — Dokumentacja i regulacje</span></div>
-  <h2 class="section"><span class="num">13.</span><span>Dokumentacja i wymagania regulacyjne</span></h2>
-
+<!-- ===================== 13. DOKUMENTACJA ===================== -->
+<section class="sec" id="s13">
+  <h2 class="sec"><span class="num">13.</span>Dokumentacja i wymagania regulacyjne</h2>
   <h3 class="sub"><span class="num">13.1.</span>Podstawowe dokumenty produktowe w USA</h3>
-  <p>Każdy produkt powinien posiadać własny zestaw dokumentów.</p>
   <table class="tbl">
     <caption>Podstawowe dokumenty produktowe</caption>
     <thead><tr><th style="width:34%;">Dokument</th><th>Opis</th></tr></thead>
     <tbody>
-      <tr><td><strong>SDS</strong> — Safety Data Sheet</td><td>OSHA wymaga, aby producenci i importerzy niebezpiecznych chemikaliów oceniali zagrożenia oraz przygotowywali etykiety i karty SDS</td></tr>
+      <tr><td><strong>SDS</strong> — Safety Data Sheet</td><td>OSHA wymaga oceny zagrożeń oraz przygotowania etykiet i kart SDS dla niebezpiecznych chemikaliów</td></tr>
       <tr><td><strong>TDS</strong> — Technical Data Sheet</td><td>Karta techniczna produktu</td></tr>
       <tr><td><strong>Etykieta amerykańska</strong></td><td>Zgodna z wymaganiami rynku USA</td></tr>
       <tr><td><strong>Certificate of Analysis</strong></td><td>Certyfikat analizy</td></tr>
       <tr><td><strong>Certificate of Conformance</strong></td><td>Potwierdzenie zgodności danej partii ze specyfikacją EZ COAT</td></tr>
       <tr><td><strong>Instrukcja aplikacji</strong></td><td>Oddzielna, praktyczna instrukcja dla wykonawcy</td></tr>
-      <tr><td><strong>Specyfikacja systemowa</strong></td><td>Dokument opisujący nie tylko produkt, ale cały układ warstw EZ COAT</td></tr>
+      <tr><td><strong>Specyfikacja systemowa</strong></td><td>Dokument opisujący cały układ warstw EZ COAT, nie tylko produkt</td></tr>
     </tbody>
   </table>
-
   <h3 class="sub"><span class="num">13.2.</span>VOC i wymagania środowiskowe</h3>
   <p>Produkty elewacyjne i architektoniczne mogą podlegać ograniczeniom dotyczącym zawartości lotnych związków organicznych (VOC). Federalne regulacje EPA dotyczą producentów i importerów <em>architectural coatings</em> oraz wprowadzają limity VOC dla poszczególnych kategorii produktów.</p>
   <div class="cols2">
-    <div class="col">
-      <h4>Należy sprawdzić</h4>
-      <ul style="margin:0;">
-        <li>federalny limit VOC,</li>
-        <li>kategorię każdego produktu,</li>
-        <li>wymagany sposób oznaczania,</li>
-        <li>metodę obliczania VOC,</li>
-        <li>dokumentację produkcyjną,</li>
-        <li>obowiązek prowadzenia zapisów.</li>
-      </ul>
-    </div>
-    <div class="col">
-      <h4>Stany wymagające analizy</h4>
-      <p style="margin:0 0 6px 0;">Poszczególne stany mogą stosować bardziej restrykcyjne wymagania — szczególnie:</p>
-      <ul style="margin:0;">
-        <li>Kalifornia,</li>
-        <li>Nowy Jork,</li>
-        <li>New Jersey,</li>
-        <li>regiony stosujące zasady OTC,</li>
-        <li>stany z własnymi regulacjami dot. <em>architectural coatings</em>.</li>
-      </ul>
-    </div>
+    <div class="col-card"><h4>Należy sprawdzić</h4><ul style="margin:0;padding-left:16px;"><li>federalny limit VOC,</li><li>kategorię każdego produktu,</li><li>wymagany sposób oznaczania,</li><li>metodę obliczania VOC,</li><li>dokumentację produkcyjną,</li><li>obowiązek prowadzenia zapisów.</li></ul></div>
+    <div class="col-card"><h4>Stany wymagające analizy</h4><ul style="margin:0;padding-left:16px;"><li>Kalifornia,</li><li>Nowy Jork,</li><li>New Jersey,</li><li>regiony stosujące zasady OTC,</li><li>stany z własnymi regulacjami dot. <em>architectural coatings</em>.</li></ul></div>
   </div>
-  <div class="box">
-    <div class="box-title">Wniosek projektowy</div>
+  <div class="panel">
+    <span class="pill">Wniosek projektowy</span>
     <p style="margin:0;">Produkty powinny być projektowane od początku jako <strong>low-VOC</strong>, zgodne z możliwie szeroką liczbą stanów i gotowe do sprzedaży bez tworzenia wielu odmiennych receptur.</p>
   </div>
-</section>
-
-<section class="page">
-  <div class="runhead"><span class="brand">EZ COAT / NEXTCOAT</span><span>13 — Dokumentacja i regulacje</span></div>
-
   <h3 class="sub"><span class="num">13.3.</span>Oznakowanie produktów konsumenckich</h3>
-  <p>Jeżeli produkty będą sprzedawane konsumentom, a nie wyłącznie profesjonalnym wykonawcom, mogą podlegać także wymaganiom <em>Federal Hazardous Substances Act</em>. Przepisy te wymagają odpowiedniego oznakowania niebezpiecznych produktów gospodarstwa domowego, w tym:</p>
-  <ul>
-    <li>określenia zagrożenia,</li>
-    <li>instrukcji bezpiecznego użycia,</li>
-    <li>informacji o pierwszej pomocy,</li>
-    <li>ostrzeżeń na bezpośrednim opakowaniu.</li>
-  </ul>
-  <p>CPSC wskazuje, że niebezpieczne produkty konsumenckie muszą posiadać odpowiednie ostrzeżenia na opakowaniu.</p>
-  <div class="box callout-red">
-    <div class="box-title">Rekomendacja</div>
+  <p>Przy sprzedaży konsumentom (a nie wyłącznie profesjonalnym wykonawcom) produkty mogą podlegać wymaganiom <em>Federal Hazardous Substances Act</em>: określeniu zagrożenia, instrukcji bezpiecznego użycia, informacji o pierwszej pomocy oraz ostrzeżeniom na bezpośrednim opakowaniu. CPSC wskazuje, że niebezpieczne produkty konsumenckie muszą posiadać odpowiednie ostrzeżenia na opakowaniu.</p>
+  <div class="panel panel-dark">
+    <h4>Rekomendacja</h4>
     <p style="margin:0;">Ostateczna klasyfikacja powinna zostać przygotowana przez specjalistę regulacyjnego na podstawie dokładnego składu każdej receptury.</p>
   </div>
-
-  <div class="summary">
-    <div class="box-title">W skrócie</div>
-    <p style="margin:0;">Każdy produkt wymaga kompletu dokumentów (SDS, TDS, etykieta, certyfikaty, instrukcja, specyfikacja systemowa). Kluczowe obszary zgodności to limity VOC (EPA + stany) oraz — przy sprzedaży konsumenckiej — wymogi FHSA/CPSC. Zaleca się projektowanie produktów jako low-VOC i weryfikację klasyfikacji przez specjalistę.</p>
-  </div>
+  <div class="take"><p>Każdy produkt wymaga kompletu dokumentów; kluczowe są limity VOC (EPA i stany) oraz — przy sprzedaży konsumenckiej — wymogi FHSA/CPSC. Rekomendacja: projektować produkty jako low-VOC.</p></div>
 </section>
 
-<!-- ===================== 14. BUDOWA PRODUKTU MARKOWEGO ===================== -->
-<section class="page">
-  <div class="runhead"><span class="brand">EZ COAT / NEXTCOAT</span><span>14 — Budowa produktu markowego</span></div>
-  <h2 class="section"><span class="num">14.</span><span>Budowa produktu markowego</span></h2>
-
+<!-- ===================== 14. BUDOWA MARKI ===================== -->
+<section class="sec" id="s14">
+  <h2 class="sec"><span class="num">14.</span>Budowa produktu markowego</h2>
   <h3 class="sub"><span class="num">14.1.</span>Badania potrzebne do budowy marki</h3>
-  <div class="box">
+  <div class="panel">
     <p style="margin:0;">Sam import receptury i umieszczenie logo na wiadrze nie wystarczą, aby produkt przestał być postrzegany jako <em>generic</em> lub <em>private label</em>. Należy stworzyć własny pakiet dowodów potwierdzających parametry EZ COAT.</p>
   </div>
-
   <h3 class="sub"><span class="num">14.2.</span>Jak sprawić, aby EZ COAT nie był produktem generic</h3>
-  <div class="steps">
-    <div class="step"><strong>Zarejestrować markę.</strong> Ochronie powinny podlegać: nazwa EZ COAT, logo, nazwy głównych produktów, nazwy technologii oraz hasła produktowe (jeżeli spełniają warunki ochrony).</div>
-    <div class="step"><strong>Stworzyć własne specyfikacje produktów.</strong></div>
-    <div class="step"><strong>Posiadać własne badania.</strong></div>
-    <div class="step"><strong>Sprzedawać system</strong> (a nie pojedynczy produkt).</div>
-    <div class="step"><strong>Stworzyć sieć przeszkolonych wykonawców.</strong></div>
-    <div class="step"><strong>Wprowadzić systemową gwarancję.</strong></div>
-    <div class="step"><strong>Zbudować bibliotekę detali technicznych.</strong></div>
-    <div class="step"><strong>Opracować obiekty referencyjne.</strong></div>
+  <div class="grid2">
+    <div class="mcard"><span class="no">1</span><span class="tx"><b>Zarejestrować markę</b> — nazwę EZ COAT, logo, nazwy głównych produktów, nazwy technologii i hasła produktowe.</span></div>
+    <div class="mcard"><span class="no">2</span><span class="tx"><b>Stworzyć własne specyfikacje</b> produktów.</span></div>
+    <div class="mcard"><span class="no">3</span><span class="tx"><b>Posiadać własne badania.</b></span></div>
+    <div class="mcard"><span class="no">4</span><span class="tx"><b>Sprzedawać system</b>, a nie pojedynczy produkt.</span></div>
+    <div class="mcard"><span class="no">5</span><span class="tx"><b>Stworzyć sieć</b> przeszkolonych wykonawców.</span></div>
+    <div class="mcard"><span class="no">6</span><span class="tx"><b>Wprowadzić systemową gwarancję.</b></span></div>
+    <div class="mcard"><span class="no">7</span><span class="tx"><b>Zbudować bibliotekę</b> detali technicznych.</span></div>
+    <div class="mcard"><span class="no">8</span><span class="tx"><b>Opracować obiekty referencyjne.</b></span></div>
   </div>
-
-  <div class="box callout-navy">
-    <div class="box-title">Nazwy technologii — siła znaku</div>
-    <p style="margin:0 0 6px 0;">Nazwa o charakterze opisowym jest słabsza i trudniejsza do ochrony niż nazwa sugestywna, arbitralna lub fantazyjna. USPTO podkreśla, że znaki opisowe są trudniejsze do rejestracji i egzekwowania. Dlatego rekomenduje się budowanie dodatkowych, bardziej odróżniających nazw technologii, na przykład:</p>
+  <div class="panel panel-dark">
+    <h4>Nazwy technologii — siła znaku</h4>
+    <p style="margin:0 0 6px;">Nazwa opisowa jest słabsza i trudniejsza do ochrony niż nazwa sugestywna, arbitralna lub fantazyjna (USPTO podkreśla, że znaki opisowe są trudniejsze do rejestracji i egzekwowania). Rekomendowane, bardziej odróżniające nazwy technologii:</p>
     <p style="margin:0;">EZ-Flex Technology · EZ-HydroShield · EZ-CrackBridge · EZ-Siloxane Matrix · EZ-Bond System · EZ-WeatherLock</p>
   </div>
-  <div class="assumption">
-    Powyższe nazwy technologii wymagają wcześniejszego badania dostępności prawnej przed użyciem i rejestracją.
+  <div class="note">
+    <span class="pill">Założenie do potwierdzenia</span>
+    <p>Powyższe nazwy technologii wymagają wcześniejszego badania dostępności prawnej przed użyciem i rejestracją.</p>
   </div>
+  <div class="take"><p>Status marki (a nie generic) buduje się rejestracją znaków, własnymi badaniami i specyfikacjami oraz sprzedażą systemu z gwarancją i siecią wykonawców.</p></div>
 </section>
 
-
-<!-- ===================== 15. KLUCZOWE PRZEWAGI ===================== -->
-<section class="page">
-  <div class="runhead"><span class="brand">EZ COAT / NEXTCOAT</span><span>15 — Kluczowe przewagi</span></div>
-  <h2 class="section"><span class="num">15.</span><span>Kluczowe przewagi</span></h2>
-
-  <div class="cols2">
-    <div class="col" style="background:var(--white);border:none;padding:0;">
-      <ul style="margin:0;">
-        <li>produkty stworzone przy współpracy wykonawców i technologów,</li>
-        <li>doświadczenie rynku USA i Europy,</li>
-        <li>wsparcie sprzedaży przez AI,</li>
-        <li>receptury sprawdzone w praktyce,</li>
-        <li>atrakcyjny koszt produkcji w Polsce,</li>
-        <li>możliwość budowy wysokiej marży,</li>
-      </ul>
-    </div>
-    <div class="col" style="background:var(--white);border:none;padding:0;">
-      <ul style="margin:0;">
-        <li>kompletne portfolio,</li>
-        <li>możliwość sprzedaży całych systemów,</li>
-        <li>możliwość rozwoju lokalnej produkcji w USA,</li>
-        <li>własne wzorniki, design i materiały,</li>
-        <li>elastyczność w tworzeniu nowych produktów,</li>
-        <li>bezpośredni kontakt z technologami.</li>
-      </ul>
-    </div>
+<!-- ===================== 15. PRZEWAGI ===================== -->
+<section class="sec" id="s15">
+  <h2 class="sec"><span class="num">15.</span>Kluczowe przewagi</h2>
+  <div class="grid2">
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Produkty stworzone przy współpracy wykonawców i technologów</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Doświadczenie rynku USA i Europy</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Wsparcie sprzedaży przez AI</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Receptury sprawdzone w praktyce</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Atrakcyjny koszt produkcji w Polsce</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Możliwość budowy wysokiej marży</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Kompletne portfolio</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Możliwość sprzedaży całych systemów</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Możliwość rozwoju lokalnej produkcji w USA</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Własne wzorniki, design i materiały</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Elastyczność w tworzeniu nowych produktów</span></div>
+    <div class="fcard"><span class="ic">✓</span><span class="tx">Bezpośredni kontakt z technologami</span></div>
   </div>
-
-  <div class="summary">
-    <div class="box-title">W skrócie</div>
-    <p style="margin:0;">Przewaga konkurencyjna łączy stronę produktową (sprawdzone receptury, kompletny system, atrakcyjny koszt produkcji), rynkową (doświadczenie USA + Europa) i operacyjną (AI w sprzedaży, elastyczność rozwoju i lokalnej produkcji).</p>
-  </div>
+  <div class="take"><p>Przewaga łączy stronę produktową (sprawdzone receptury, kompletny system, koszt produkcji), rynkową (doświadczenie USA i Europy) oraz operacyjną (AI w sprzedaży, elastyczność rozwoju i lokalnej produkcji).</p></div>
 </section>
 
-<!-- ===================== 16. RYZYKA PROJEKTU ===================== -->
-<section class="page">
-  <div class="runhead"><span class="brand">EZ COAT / NEXTCOAT</span><span>16 — Ryzyka projektu</span></div>
-  <h2 class="section"><span class="num">16.</span><span>Ryzyka projektu</span></h2>
-
+<!-- ===================== 16. RYZYKA ===================== -->
+<section class="sec" id="s16">
+  <h2 class="sec"><span class="num">16.</span>Ryzyka projektu</h2>
   <table class="tbl">
     <caption>Zidentyfikowane ryzyka</caption>
-    <thead><tr><th style="width:26%;">Kategoria ryzyka</th><th>Opis</th></tr></thead>
+    <thead><tr><th style="width:26%;">Kategoria</th><th>Opis</th></tr></thead>
     <tbody>
-      <tr><td><span class="tag red">Logistyczne</span></td><td>Opóźnienia transportu, kontrole celne i wzrost frachtu</td></tr>
-      <tr><td><span class="tag red">Regulacyjne</span></td><td>Niewłaściwa klasyfikacja produktu lub etykieta</td></tr>
-      <tr><td><span class="tag red">Jakości</span></td><td>Różnice pomiędzy partiami</td></tr>
-      <tr><td><span class="tag red">Sprzedażowe</span></td><td>Powolne przyjęcie nowej marki</td></tr>
-      <tr><td><span class="tag red">Produktowe</span></td><td>Nieprawidłowe stosowanie materiału przez wykonawcę</td></tr>
+      <tr><td><span class="tag">Logistyczne</span></td><td>Opóźnienia transportu, kontrole celne i wzrost frachtu</td></tr>
+      <tr><td><span class="tag">Regulacyjne</span></td><td>Niewłaściwa klasyfikacja produktu lub etykieta</td></tr>
+      <tr><td><span class="tag">Jakości</span></td><td>Różnice pomiędzy partiami produkcyjnymi</td></tr>
+      <tr><td><span class="tag">Sprzedażowe</span></td><td>Powolne przyjęcie nowej marki na rynku</td></tr>
+      <tr><td><span class="tag">Produktowe</span></td><td>Nieprawidłowe stosowanie materiału przez wykonawcę</td></tr>
     </tbody>
   </table>
-
-  <div class="summary">
-    <div class="box-title">W skrócie</div>
-    <p style="margin:0;">Pięć głównych obszarów ryzyka: logistyka, zgodność regulacyjna, powtarzalność jakości, tempo adopcji marki oraz poprawność stosowania produktów przez wykonawców. Każdy z nich powinien mieć przypisane działania ograniczające przed skalowaniem.</p>
-  </div>
+  <div class="take"><p>Każde z pięciu ryzyk wymaga przypisanego działania ograniczającego przed skalowaniem — priorytetem są logistyka i zgodność regulacyjna, bo najsilniej wpływają na koszty i harmonogram wejścia na rynek.</p></div>
 </section>
 
-<!-- ===================== 17. CELE NA PIERWSZE 12 MIESIĘCY ===================== -->
-<section class="page">
-  <div class="runhead"><span class="brand">EZ COAT / NEXTCOAT</span><span>17 — Cele na 12 miesięcy</span></div>
-  <h2 class="section"><span class="num">17.</span><span>Cele na pierwsze 12 miesięcy</span></h2>
-
-  <ul class="check" style="font-size:10.4pt;">
-    <li>uruchomienie spółki EZ COAT USA,</li>
-    <li>przygotowanie 5–8 produktów,</li>
-    <li>wykonanie SDS, TDS i etykiet,</li>
-    <li>zakończenie podstawowych badań,</li>
-    <li>import pierwszych kontenerów,</li>
-    <li>pozyskanie aktywnych wykonawców,</li>
-    <li>pozyskanie punktów dystrybucyjnych,</li>
-    <li>wykonanie obiektów referencyjnych,</li>
-    <li>uruchomienie systemu pigmentowania,</li>
-    <li>stworzenie programu certyfikowanych wykonawców,</li>
-    <li>osiągnięcie regularnej sprzedaży powtarzalnej.</li>
-  </ul>
-
-  <div class="summary">
-    <div class="box-title">W skrócie</div>
-    <p style="margin:0;">Pierwszy rok to uruchomienie spółki i logistyki, przygotowanie 5–8 produktów z pełną dokumentacją, budowa sieci wykonawców i dystrybucji oraz dojście do powtarzalnej sprzedaży wraz z programem certyfikacji i systemem pigmentowania.</p>
+<!-- ===================== 17. CELE 12 MIESIĘCY ===================== -->
+<section class="sec" id="s17">
+  <h2 class="sec"><span class="num">17.</span>Cele na pierwsze 12 miesięcy</h2>
+  <div class="grid2">
+    <div class="mcard"><span class="no">1</span><span class="tx">Uruchomienie spółki EZ COAT USA</span></div>
+    <div class="mcard"><span class="no">2</span><span class="tx">Przygotowanie 5–8 produktów</span></div>
+    <div class="mcard"><span class="no">3</span><span class="tx">Wykonanie SDS, TDS i etykiet</span></div>
+    <div class="mcard"><span class="no">4</span><span class="tx">Zakończenie podstawowych badań</span></div>
+    <div class="mcard"><span class="no">5</span><span class="tx">Import pierwszych kontenerów</span></div>
+    <div class="mcard"><span class="no">6</span><span class="tx">Pozyskanie aktywnych wykonawców</span></div>
+    <div class="mcard"><span class="no">7</span><span class="tx">Pozyskanie punktów dystrybucyjnych</span></div>
+    <div class="mcard"><span class="no">8</span><span class="tx">Wykonanie obiektów referencyjnych</span></div>
+    <div class="mcard"><span class="no">9</span><span class="tx">Uruchomienie systemu pigmentowania</span></div>
+    <div class="mcard"><span class="no">10</span><span class="tx">Program certyfikowanych wykonawców</span></div>
+    <div class="mcard" style="grid-column:1 / span 2;"><span class="no">11</span><span class="tx">Osiągnięcie regularnej, powtarzalnej sprzedaży</span></div>
   </div>
+  <div class="take"><p>Pierwszy rok zamyka się osiągnięciem powtarzalnej sprzedaży przy 5–8 produktach z pełną dokumentacją i działającej sieci dystrybucji.</p></div>
 </section>
 
 
-<!-- ===================== 18. ARCHITEKTURA MAREK NEXT INDUSTRIES ===================== -->
-<section class="page">
-  <div class="runhead"><span class="brand">NEXT INDUSTRIES</span><span>18 — Architektura marek</span></div>
-  <h2 class="section"><span class="num">18.</span><span>Architektura marek NEXT Industries</span></h2>
+<style>
+.logo-box{ border:1px solid var(--line); border-radius:10px; background:#fff; height:118px; position:relative; }
+.logo-box img{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:auto; }
+.brand-card{ position:relative; height:190px; border:1px solid var(--line); border-radius:12px;
+  background:#fff; break-inside:avoid; }
+.brand-card.ez{ border-top:4px solid var(--amber); }
+.brand-card.nc{ border-top:4px solid var(--red); }
+.brand-card .logo-area{ position:absolute; left:14px; right:14px; top:16px; bottom:54px; }
+.brand-card .logo-area img{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:auto; }
+.brand-card .cap{ position:absolute; left:0; right:0; bottom:16px; text-align:center; }
+.brand-card .cap b{ display:block; color:var(--graphite); font-size:10pt; }
+.swatch{ border:1px solid var(--line); border-radius:10px; overflow:hidden; background:#fff; break-inside:avoid; }
+.swatch .chip{ height:46px; }
+.swatch .sinfo{ padding:9px 11px; }
+.swatch .sinfo b{ display:block; color:var(--graphite); font-size:9.4pt; }
+.swatch .sinfo .code{ display:block; color:var(--muted); font-family:"Courier New",monospace; font-size:8pt; }
+.swatch .sinfo .use{ display:block; margin-top:4px; color:#5a564f; font-size:8.2pt; }
+</style>
 
-  <p>Projekt chemii budowlanej wpisuje się w szerszą rodzinę marek handlowych spółki <strong>NEXT Industries</strong>.</p>
-
-  <table class="tbl">
-    <caption>Rodzina marek NEXT Industries</caption>
-    <thead><tr><th style="width:22%;">Marka</th><th style="width:20%;">Status</th><th>Obszar</th></tr></thead>
-    <tbody>
-      <tr><td><strong>NEXTCOLD</strong></td><td>marka handlowa</td><td>Marka handlowa spółki NEXT Industries</td></tr>
-      <tr><td><strong>NEXTOIL</strong></td><td>planowana</td><td>Oleje przeznaczone m.in. dla przemysłu i ogrodu</td></tr>
-      <tr><td><strong>EZ COAT</strong> / <strong>NEXTCOAT</strong></td><td>w opracowaniu</td><td>Chemia budowlana — projekt opisany w niniejszym dokumencie (dwie rozważane nazwy)</td></tr>
-    </tbody>
-  </table>
-
-  <!-- prosty schemat architektury marek -->
-  <div style="margin:18px 0;break-inside:avoid;">
-    <div style="text-align:center;background:var(--graphite);color:#fff;font-weight:800;letter-spacing:2px;
-         padding:10px;border-radius:4px;width:60%;margin:0 auto;">NEXT INDUSTRIES</div>
-    <div style="width:2px;height:16px;background:var(--line-strong);margin:0 auto;"></div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
-      <div style="border:1px solid var(--line-strong);border-top:4px solid var(--navy);border-radius:4px;padding:12px;text-align:center;">
-        <div style="font-weight:800;color:var(--graphite);">NEXTCOLD</div>
-        <div class="small" style="margin-top:4px;">marka handlowa</div>
-      </div>
-      <div style="border:1px solid var(--line-strong);border-top:4px solid var(--navy);border-radius:4px;padding:12px;text-align:center;">
-        <div style="font-weight:800;color:var(--graphite);">NEXTOIL</div>
-        <div class="small" style="margin-top:4px;">planowana — oleje (przemysł, ogród)</div>
-      </div>
-      <div style="border:1px solid var(--line-strong);border-top:4px solid var(--amber);border-radius:4px;padding:12px;text-align:center;">
-        <div style="font-weight:800;color:var(--graphite);">EZ COAT / NEXTCOAT</div>
-        <div class="small" style="margin-top:4px;">chemia budowlana</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="summary">
-    <div class="box-title">W skrócie</div>
-    <p style="margin:0;">NEXT Industries rozwija portfel marek: NEXTCOLD (marka handlowa) i planowaną NEXTOIL (oleje dla przemysłu i ogrodu). Projekt chemii budowlanej dołącza do tej rodziny pod jedną z dwóch rozważanych nazw: EZ COAT lub NEXTCOAT.</p>
-  </div>
-</section>
-
-<!-- ===================== 19. PORÓWNANIE NAZW ===================== -->
-<section class="page">
-  <div class="runhead"><span class="brand">NEXT INDUSTRIES</span><span>19 — Porównanie nazw</span></div>
-  <h2 class="section"><span class="num">19.</span><span>Porównanie nazw: EZ COAT i NEXTCOAT</span></h2>
-
+<!-- ===================== 18. PORÓWNANIE NAZW ===================== -->
+<section class="sec" id="s18">
+  <h2 class="sec"><span class="num">18.</span>Porównanie nazw: EZ COAT i NEXTCOAT</h2>
   <p>Dla projektu rozważane są dwie nazwy. Zestawienie jest neutralne i dotyczy wyłącznie warstwy komunikacyjnej.</p>
-
   <div class="cols2" style="margin:12px 0;">
-    <div class="col" style="text-align:center;background:#fff;">
-      <img src="assets/ez-coat-logo.png" alt="EZ COAT" style="height:88px;width:auto;">
-    </div>
-    <div class="col" style="text-align:center;background:#fff;display:flex;align-items:center;justify-content:center;">
-      <img src="assets/nextcoat-logo.png" alt="NEXTCOAT" style="height:28px;width:auto;">
-    </div>
+    <div class="logo-box"><img src="assets/ez-coat-logo.png" alt="EZ COAT" style="height:92px;"></div>
+    <div class="logo-box"><img src="assets/nextcoat-logo.png" alt="NEXTCOAT" style="height:30px;"></div>
   </div>
-
   <table class="tbl">
     <caption>Neutralne porównanie komunikacyjne</caption>
     <thead><tr><th style="width:26%;">Kryterium</th><th style="width:37%;">EZ COAT</th><th style="width:37%;">NEXTCOAT</th></tr></thead>
     <tbody>
-      <tr>
-        <td><strong>Główny przekaz</strong></td>
-        <td>Mocniej komunikuje <strong>łatwość aplikacji</strong> („EZ” = <em>easy</em>)</td>
-        <td>Mocniej komunikuje <strong>przynależność do rodziny NEXT Industries</strong></td>
-      </tr>
-      <tr>
-        <td><strong>Źródło nazwy</strong></td>
-        <td>Występuje w materiale źródłowym projektu</td>
-        <td>Alternatywna, spójna z NEXTCOLD i NEXTOIL</td>
-      </tr>
-      <tr>
-        <td><strong>Spójność z rodziną marek</strong></td>
-        <td>Samodzielna względem przedrostka „NEXT”</td>
-        <td>Bezpośrednio nawiązuje do przedrostka „NEXT”</td>
-      </tr>
+      <tr><td><strong>Główny przekaz</strong></td><td>Mocniej komunikuje <strong>łatwość aplikacji</strong> („EZ" = <em>easy</em>)</td><td>Mocniej komunikuje <strong>przynależność do rodziny NEXT Industries</strong></td></tr>
+      <tr><td><strong>Źródło nazwy</strong></td><td>Występuje w materiale źródłowym projektu</td><td>Alternatywna, spójna z NEXTCOLD i NEXTOIL</td></tr>
+      <tr><td><strong>Spójność z rodziną marek</strong></td><td>Samodzielna względem przedrostka „NEXT"</td><td>Bezpośrednio nawiązuje do przedrostka „NEXT"</td></tr>
     </tbody>
   </table>
-
-  <div class="assumption">
-    Niniejsze porównanie nie obejmuje analizy dostępności prawnej, domen, SEO ani znaków towarowych. Kwestie prawne i domenowe wymagają osobnej weryfikacji na podstawie odpowiednich badań przed wyborem nazwy.
-  </div>
-
-  <div class="summary">
-    <div class="box-title">W skrócie</div>
-    <p style="margin:0;">Wybór sprowadza się do akcentu: <strong>EZ COAT</strong> podkreśla korzyść (łatwość aplikacji), <strong>NEXTCOAT</strong> podkreśla przynależność do rodziny marek NEXT Industries. Decyzja wymaga uzupełnienia o odrębną weryfikację prawną i domenową.</p>
-  </div>
+  <div class="take"><p>EZ COAT akcentuje łatwość aplikacji; NEXTCOAT — przynależność do rodziny NEXT Industries. Wybór wymaga odrębnej weryfikacji prawnej, domenowej i pod kątem znaków towarowych (poza zakresem niniejszego zestawienia).</p></div>
 </section>
 
+<p class="small" style="margin-top:18px;text-align:center;color:#A9A29C;">— Koniec dokumentu — &nbsp;•&nbsp; Opracowano wyłącznie na podstawie dostarczonego materiału źródłowego i wskazanego kontekstu.</p>
 
-<!-- ===================== 20. MINI BRANDBOOK ===================== -->
-<section class="page">
-  <div class="runhead"><span class="brand">NEXT INDUSTRIES</span><span>20 — Mini brandbook</span></div>
-  <h2 class="section"><span class="num">20.</span><span>Mini brandbook</span></h2>
-
-  <p>Znaki prezentowane są w oryginalnej formie — bez zmian, bez zniekształceń i bez przeprojektowania.</p>
-
-  <h3 class="sub"><span class="num">20.1.</span>Znaki marki</h3>
-  <div class="cols2">
-    <div class="col" style="border-top:4px solid var(--amber);text-align:center;background:#fff;">
-      <img src="assets/ez-coat-logo.png" alt="EZ COAT — godło" style="height:126px;width:auto;">
-      <div style="font-weight:800;color:var(--graphite);margin-top:10px;">EZ COAT</div>
-      <div class="small">Godło / badge — układ pionowy</div>
-    </div>
-    <div class="col" style="border-top:4px solid var(--red);text-align:center;background:#fff;display:flex;flex-direction:column;justify-content:center;">
-      <img src="assets/nextcoat-logo.png" alt="NEXTCOAT — logotyp" style="height:40px;width:auto;margin:0 auto;">
-      <div style="font-weight:800;color:var(--graphite);margin-top:18px;">NEXTCOAT</div>
-      <div class="small">Logotyp poziomy z sygnetem</div>
-    </div>
-  </div>
-
-  <h3 class="sub"><span class="num">20.2.</span>Paleta kolorów</h3>
-  <table class="tbl">
-    <caption>Kolory pobrane z dostarczonych znaków</caption>
-    <thead><tr><th style="width:16%;">Próbka</th><th>Kolor</th><th>HEX</th><th>RGB</th><th>Zastosowanie</th></tr></thead>
-    <tbody>
-      <tr>
-        <td style="background:#FCC40C;"></td>
-        <td>Amber EZ</td><td>#FCC40C</td><td>252, 196, 12</td><td>Kolor akcentowy EZ COAT</td>
-      </tr>
-      <tr>
-        <td style="background:#222220;"></td>
-        <td>Grafit</td><td>#222220</td><td>34, 34, 32</td><td>Tekst godła EZ COAT, elementy neutralne</td>
-      </tr>
-      <tr>
-        <td style="background:#D81824;"></td>
-        <td>Czerwień NEXTCOAT</td><td>#D81824</td><td>216, 24, 36</td><td>Kolor akcentowy NEXTCOAT („COAT”, sygnet)</td>
-      </tr>
-      <tr>
-        <td style="background:#98040F;"></td>
-        <td>Czerwień głęboka</td><td>#98040F</td><td>152, 4, 15</td><td>Dolny zakres gradientu sygnetu NEXTCOAT</td>
-      </tr>
-      <tr>
-        <td style="background:#0B1821;"></td>
-        <td>Grafit-navy</td><td>#0B1821</td><td>11, 24, 33</td><td>Człon „NEXT” w logotypie NEXTCOAT</td>
-      </tr>
-      <tr>
-        <td style="background:#FFFFFF;border:1px solid var(--line);"></td>
-        <td>Biel</td><td>#FFFFFF</td><td>255, 255, 255</td><td>Tło, kontrapunkt, negatyw</td>
-      </tr>
-    </tbody>
-  </table>
-  <p class="small">Wartości kolorów odczytano bezpośrednio z dostarczonych plików znaków. Specyfikacja druku (odpowiedniki CMYK / Pantone) — <strong>dane do uzupełnienia</strong>.</p>
-</section>
-
-<section class="page">
-  <div class="runhead"><span class="brand">NEXT INDUSTRIES</span><span>20 — Mini brandbook</span></div>
-
-  <h3 class="sub"><span class="num">20.3.</span>Typografia i pole ochronne</h3>
-  <div class="cols2">
-    <div class="col">
-      <h4>Charakter typografii</h4>
-      <p style="margin:0;">Oba znaki wykorzystują <strong>bezszeryfowy, pogrubiony krój geometryczny</strong> o wysokiej czytelności i technicznym charakterze. Dla materiałów towarzyszących zaleca się spójny, jednolity krój bezszeryfowy.</p>
-      <div class="todo" style="margin-top:10px;">Dokładne nazwy krojów pismowych logotypów oraz kroju tekstowego dla komunikacji marki.</div>
-    </div>
-    <div class="col">
-      <h4>Zasady użycia znaku</h4>
-      <ul style="margin:0;">
-        <li>nie zmieniać proporcji ani kolorów znaku,</li>
-        <li>nie przeprojektowywać znaku,</li>
-        <li>zachować pole ochronne wokół znaku,</li>
-        <li>zapewnić wystarczający kontrast tła,</li>
-        <li>stosować znak w wersji oryginalnej.</li>
-      </ul>
-    </div>
-  </div>
-
-  <h3 class="sub"><span class="num">20.4.</span>Tło i kontrast</h3>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;break-inside:avoid;">
-    <div style="text-align:center;background:#fff;border:1px solid var(--line);border-radius:4px;padding:16px;">
-      <img src="assets/ez-coat-logo.png" style="height:80px;"><div class="small" style="margin-top:6px;">EZ COAT na bieli</div>
-    </div>
-    <div style="text-align:center;background:var(--graphite);border-radius:4px;padding:16px;">
-      <img src="assets/ez-coat-logo.png" style="height:80px;"><div class="small" style="margin-top:6px;color:#cfcfca;">EZ COAT na grafitowym tle</div>
-    </div>
-    <div style="text-align:center;background:#fff;border:1px solid var(--line);border-radius:4px;padding:16px;display:flex;flex-direction:column;justify-content:center;">
-      <img src="assets/nextcoat-logo.png" style="height:34px;margin:0 auto;"><div class="small" style="margin-top:10px;">NEXTCOAT na bieli</div>
-    </div>
-    <div style="text-align:center;background:var(--navy);border-radius:4px;padding:16px;display:flex;flex-direction:column;justify-content:center;">
-      <img src="assets/nextcoat-logo.png" style="height:34px;margin:0 auto;background:#fff;padding:6px 10px;border-radius:3px;">
-      <div class="small" style="margin-top:10px;color:#cfd6da;">NEXTCOAT — na ciemnym tle zalecana wersja na jasnym polu</div>
-    </div>
-  </div>
-  <p class="small">Powyższe zastosowania mają charakter poglądowy i bazują na oryginalnych znakach. Pełne wersje znaku (mono, negatyw, warianty na tłach) — <strong>dane do uzupełnienia</strong>.</p>
-
-  <div class="summary">
-    <div class="box-title">W skrócie</div>
-    <p style="margin:0;">Istnieją dwa gotowe kierunki wizualne: godło EZ COAT (amber + grafit) oraz logotyp NEXTCOAT (czerwień + grafit-navy, z sygnetem heksagonalnym). Oba stosuje się w formie oryginalnej. Do uzupełnienia pozostają: nazwy krojów, specyfikacja druku (CMYK/Pantone) oraz pełny zestaw wariantów znaku.</p>
-  </div>
-</section>
-
-<!-- ===================== 21. INFORMACJE WYMAGAJĄCE POTWIERDZENIA ===================== -->
-<section class="page">
-  <div class="runhead"><span class="brand">NEXT INDUSTRIES</span><span>21 — Do potwierdzenia</span></div>
-  <h2 class="section"><span class="num">21.</span><span>Informacje wymagające potwierdzenia</span></h2>
-
-  <p style="margin-bottom:4px;">Zestawienie wszystkich pozycji oznaczonych w dokumencie jako założenia do potwierdzenia lub dane do uzupełnienia.</p>
-
-  <h3 class="sub" style="margin-top:12px;"><span class="num">21.1.</span>Założenia wymagające potwierdzenia</h3>
-  <table class="tbl">
-    <thead><tr><th style="width:22%;">Obszar</th><th>Pozycja</th></tr></thead>
-    <tbody>
-      <tr><td>Ekonomika (rozdz. 6)</td><td>Ceny, koszty i marże produktów — do potwierdzenia ofertami transportowymi, taryfami celnymi, stawkami magazynowymi i wycenami producentów</td></tr>
-      <tr><td>Logistyka (rozdz. 7)</td><td>Koszty transportu (~4 000–5 000 USD/kontener) i pojemność (~500–600 wiader) — wartości orientacyjne</td></tr>
-      <tr><td>Budowa marki (rozdz. 14)</td><td>Nazwy technologii (EZ-Flex, EZ-HydroShield, EZ-CrackBridge i in.) — wymagają badania dostępności prawnej</td></tr>
-      <tr><td>Porównanie nazw (rozdz. 19)</td><td>Kwestie prawne, domenowe, SEO i znaków towarowych — wymagają osobnej weryfikacji</td></tr>
-    </tbody>
-  </table>
-
-  <h3 class="sub"><span class="num">21.2.</span>Dane do uzupełnienia</h3>
-  <table class="tbl">
-    <thead><tr><th style="width:22%;">Obszar</th><th>Brakująca informacja</th></tr></thead>
-    <tbody>
-      <tr><td>Zapotrzebowanie finansowe (rozdz. 11)</td><td>Kwoty dla czterech kategorii nakładów oraz suma wariantu pilotażowego</td></tr>
-      <tr><td>Brandbook — kolory (rozdz. 20.2)</td><td>Specyfikacja druku: odpowiedniki CMYK / Pantone dla kolorów marki</td></tr>
-      <tr><td>Brandbook — typografia (rozdz. 20.3)</td><td>Nazwy krojów pismowych logotypów oraz kroju tekstowego komunikacji marki</td></tr>
-      <tr><td>Brandbook — warianty znaku (rozdz. 20.4)</td><td>Pełne wersje znaku: mono, negatyw, warianty na różnych tłach</td></tr>
-      <tr><td>Materiały NEXTCOAT</td><td>Poza dostarczonym logotypem NEXTCOAT brak dalszych materiałów wizualnych tej marki (systemy, opakowania, wzorniki)</td></tr>
-    </tbody>
-  </table>
-
-  <div class="summary">
-    <div class="box-title">Rekomendacja</div>
-    <p style="margin:0;">Przed decyzją inwestycyjną należy domknąć przede wszystkim: budżet wariantu pilotażowego (kwoty), potwierdzenie kosztów produkcji i logistyki oraz weryfikację prawną nazw i znaków. Pozostałe pozycje dotyczą uszczegółowienia identyfikacji wizualnej.</p>
-    <p style="margin:10px 0 0 0;padding-top:8px;border-top:1px solid rgba(255,255,255,.18);font-size:7.8pt;color:#E9CBB2;text-align:center;">— Koniec dokumentu — &nbsp;•&nbsp; Opracowano wyłącznie na podstawie dostarczonego materiału źródłowego i wskazanego kontekstu.</p>
-  </div>
-</section>
-
+</main>
+</div><!-- /.sheet -->
 </body>
 </html>

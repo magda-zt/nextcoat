@@ -36,10 +36,7 @@ potwierdzenia"*, a braki jako *„Dane do uzupełnienia"*.
 15. Kluczowe przewagi
 16. Ryzyka projektu
 17. Cele na pierwsze 12 miesięcy
-18. Architektura marek NEXT Industries
-19. Porównanie nazw: EZ COAT i NEXTCOAT
-20. Mini brandbook
-21. Informacje wymagające potwierdzenia
+18. Porównanie nazw: EZ COAT i NEXTCOAT
 
 ## Generowanie PDF z HTML
 
