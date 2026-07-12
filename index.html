@@ -12,18 +12,22 @@
    NEXTCOAT -> czerwień #D81824 (gradient do #98040F), grafit-navy #0B1821
    ========================================================= */
 :root{
-  --amber:#FCC40C;
+  /* KOLOR PRZEWODNI DOKUMENTU: ciemna czerwień */
+  --red:#9E1B22;          /* ciemna czerwień — kolor przewodni */
+  --red-deep:#5E0D14;     /* najciemniejsza czerwień (pasy, akcenty) */
+  --red-bright:#C4212B;   /* jaśniejszy akcent (oszczędnie) */
+  --red-tint:#F7ECED;     /* delikatne czerwone tło */
+  --amber:#FCC40C;        /* wyłącznie identyfikacja marki EZ COAT */
   --amber-tint:#FEF3CE;
-  --ink:#1E1E1C;         /* podstawowy tekst / grafit */
-  --graphite:#222220;
-  --navy:#0B1821;        /* ciemny NEXT */
-  --red:#D81824;         /* NEXTCOAT */
-  --red-deep:#98040F;
-  --muted:#6A6A64;
-  --line:#E3E3DF;
-  --line-strong:#C9C9C3;
-  --tint:#F6F6F3;        /* delikatne tło sekcji */
+  --ink:#26251F;          /* podstawowy tekst */
+  --graphite:#26251F;     /* ciemny grafit */
+  --navy:#0B1821;         /* człon NEXT w logotypie NEXTCOAT */
+  --muted:#736F67;
+  --line:#E8E4E1;
+  --line-strong:#D3CDC9;
+  --tint:#F8F6F4;         /* delikatne tło sekcji */
   --white:#FFFFFF;
+  --serif:Georgia,"Times New Roman",serif;
   --sans:"Helvetica Neue",Arial,"Segoe UI",Roboto,system-ui,sans-serif;
 }
 
@@ -46,11 +50,11 @@
 html,body{margin:0;padding:0;}
 body{
   font-family:var(--sans);
-  color:var(--ink);
+  color:#2E2D27;
   font-size:10.2pt;
   line-height:1.5;
   -webkit-font-smoothing:antialiased;
-  background:#8a8a8a;
+  background:#6d6d6d;
 }
 
 /* ---------- KONTENERY STRON (podgląd w przeglądarce) ---------- */
@@ -72,13 +76,13 @@ body{
 /* ---------- TYPOGRAFIA / NAGŁÓWKI ---------- */
 h1,h2,h3,h4{font-family:var(--sans);color:var(--graphite);margin:0;font-weight:800;}
 h2.section{
-  font-size:16pt; line-height:1.18; letter-spacing:.2px;
-  padding:0 0 8px 0; margin:0 0 14px 0;
-  border-bottom:3px solid var(--amber);
+  font-size:16pt; line-height:1.16; letter-spacing:-.1px;
+  padding:0 0 8px 0; margin:0 0 13px 0;
+  border-bottom:2px solid var(--red);
   display:flex; gap:12px; align-items:flex-start;
 }
 h2.section .num{
-  color:var(--amber); font-weight:800; white-space:nowrap;
+  color:var(--red); font-weight:800; white-space:nowrap;
 }
 h3.sub{
   font-size:11.6pt; margin:18px 0 8px 0; color:var(--graphite);
@@ -105,9 +109,9 @@ strong{color:var(--graphite);}
 /* ---------- RAMKI / WYRÓŻNIENIA ---------- */
 .box{
   border:1px solid var(--line-strong);
-  border-left:5px solid var(--amber);
+  border-left:4px solid var(--red);
   background:var(--tint);
-  padding:12px 14px; margin:12px 0; border-radius:2px;
+  padding:11px 14px; margin:11px 0; border-radius:3px;
   break-inside:avoid;
 }
 .box .box-title{font-weight:800;color:var(--graphite);text-transform:uppercase;
@@ -134,12 +138,12 @@ strong{color:var(--graphite);}
 
 /* podsumowanie sekcji */
 .summary{
-  background:var(--graphite); color:#F3F3EF;
-  padding:12px 15px;margin:16px 0 4px 0;border-radius:3px;break-inside:avoid;
+  background:linear-gradient(100deg,var(--red-deep) 0%,#7A1119 100%); color:#F6ECE9;
+  padding:11px 15px;margin:14px 0 2px 0;border-radius:4px;break-inside:avoid;
 }
-.summary .box-title{color:var(--amber);text-transform:uppercase;letter-spacing:.8px;
+.summary .box-title{color:#F0C99C;text-transform:uppercase;letter-spacing:1.1px;
   font-size:8.5pt;font-weight:800;margin-bottom:5px;}
-.summary p, .summary li{color:#EDEDE8;}
+.summary p, .summary li{color:#F4E8E4;}
 .summary strong{color:var(--white);}
 
 /* ---------- TABELE ---------- */
@@ -161,21 +165,22 @@ table.tbl td{
 table.tbl tbody tr:nth-child(even){background:var(--tint);}
 table.tbl tr{break-inside:avoid;}
 table.tbl td.num,table.tbl th.num{text-align:right;white-space:nowrap;}
-.tag{display:inline-block;background:var(--amber);color:#3a2e00;font-weight:800;
-  font-size:7.6pt;padding:1px 6px;border-radius:3px;letter-spacing:.4px;}
+.tag{display:inline-block;background:var(--red);color:#fff;font-weight:800;
+  font-size:7.6pt;padding:1px 7px;border-radius:3px;letter-spacing:.4px;}
 .tag.red{background:var(--red);color:#fff;}
+.tag.amber{background:var(--amber);color:#3a2e00;}
 .tag.navy{background:var(--navy);color:#fff;}
 
 /* dwie kolumny */
 .cols2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 .cols2 .col{background:var(--tint);border:1px solid var(--line);border-radius:3px;padding:12px 14px;}
-.cols2 .col h4{margin-top:0;color:var(--graphite);border-bottom:2px solid var(--amber);
+.cols2 .col h4{margin-top:0;color:var(--graphite);border-bottom:2px solid var(--red);
   padding-bottom:4px;display:inline-block;}
 
 /* checklista celów */
 ul.check{list-style:none;padding-left:0;}
 ul.check li{padding-left:22px;position:relative;margin:5px 0;}
-ul.check li:before{content:"▸";position:absolute;left:4px;color:var(--amber);font-weight:800;}
+ul.check li:before{content:"▸";position:absolute;left:4px;color:var(--red);font-weight:800;}
 
 /* kroki / numerowane karty */
 .steps{counter-reset:step;}
@@ -183,7 +188,7 @@ ul.check li:before{content:"▸";position:absolute;left:4px;color:var(--amber);f
 .step:before{
   counter-increment:step;content:counter(step);
   position:absolute;left:0;top:0;width:23px;height:23px;border-radius:50%;
-  background:var(--graphite);color:#fff;font-weight:800;font-size:9pt;
+  background:var(--red-deep);color:#fff;font-weight:800;font-size:9pt;
   display:flex;align-items:center;justify-content:center;
 }
 </style>
@@ -193,8 +198,8 @@ ul.check li:before{content:"▸";position:absolute;left:4px;color:var(--amber);f
 
 <!-- ============================= OKŁADKA ============================= -->
 <section class="page" style="page:cover;padding:0;display:flex;flex-direction:column;">
-  <div style="background:var(--graphite);color:#fff;flex:0 0 auto;padding:26mm 22mm 18mm 22mm;position:relative;">
-    <div style="position:absolute;top:0;left:0;width:100%;height:6px;background:linear-gradient(90deg,var(--amber) 0 55%,var(--red) 55% 100%);"></div>
+  <div style="background:linear-gradient(150deg,#4A0D12 0%,#2A0A0C 55%,#231A18 100%);color:#fff;flex:0 0 auto;padding:27mm 22mm 20mm 22mm;position:relative;">
+    <div style="position:absolute;top:0;left:0;width:100%;height:5px;background:linear-gradient(90deg,var(--red) 0 62%,var(--amber) 62% 100%);"></div>
     <table style="border-collapse:collapse;"><tr>
       <td style="vertical-align:middle;padding-right:24px;">
         <img src="assets/ez-coat-logo.png" alt="EZ COAT" style="height:118px;width:auto;background:#fff;padding:8px;border-radius:6px;">
@@ -203,15 +208,16 @@ ul.check li:before{content:"▸";position:absolute;left:4px;color:var(--amber);f
         <img src="assets/nextcoat-logo.png" alt="NEXTCOAT" style="height:34px;width:auto;background:#fff;padding:12px 16px;border-radius:6px;">
       </td>
     </tr></table>
-    <p style="margin:22px 0 0 0;font-size:8.5pt;letter-spacing:3px;text-transform:uppercase;color:var(--amber);font-weight:700;">NEXT Industries • Chemia budowlana</p>
-    <h1 style="color:#fff;font-size:33pt;line-height:1.06;margin:8px 0 0 0;letter-spacing:-.5px;">Biznesplan wejścia<br>na rynek USA</h1>
-    <p style="margin:14px 0 0 0;font-size:12.5pt;color:#D9D9D4;max-width:150mm;">
+    <p style="margin:26px 0 0 0;font-size:8.5pt;letter-spacing:3.5px;text-transform:uppercase;color:#E7C07A;font-weight:700;">NEXT Industries &nbsp;•&nbsp; Chemia budowlana</p>
+    <h1 style="color:#fff;font-size:34pt;line-height:1.05;margin:9px 0 0 0;letter-spacing:-.6px;font-weight:800;">Biznesplan wejścia<br>na rynek USA</h1>
+    <div style="width:64px;height:3px;background:var(--red-bright);margin:16px 0 0 0;border-radius:2px;"></div>
+    <p style="margin:14px 0 0 0;font-size:12.5pt;line-height:1.4;color:#E4DCD8;max-width:150mm;font-weight:300;">
       Europejska technologia chemii budowlanej. Amerykańskie doświadczenie.
       Skalowalny model dystrybucji.</p>
   </div>
 
   <div style="flex:1 1 auto;padding:16mm 22mm 0 22mm;">
-    <div style="border-left:5px solid var(--amber);padding:2px 0 2px 16px;">
+    <div style="border-left:4px solid var(--red);padding:2px 0 2px 16px;">
       <p style="font-size:11.5pt;color:var(--graphite);margin:0;">
         Marka specjalistycznych produktów do wykonywania, ochrony i renowacji elewacji —
         oferowana w USA w modelu opartym na produkcji w Polsce, imporcie kontenerowym,
@@ -246,23 +252,23 @@ ul.check li:before{content:"▸";position:absolute;left:4px;color:var(--amber);f
 
   <table class="tbl" style="font-size:9.6pt;">
     <tbody>
-      <tr><td style="width:34px;font-weight:800;color:var(--amber);">1</td><td>Streszczenie projektu</td></tr>
-      <tr><td style="font-weight:800;color:var(--amber);">2</td><td>Geneza i koncepcja</td></tr>
-      <tr><td style="font-weight:800;color:var(--amber);">3</td><td>Problemy wykonawców i problem rynkowy</td></tr>
-      <tr><td style="font-weight:800;color:var(--amber);">4</td><td>Rozwiązanie i portfolio produktów</td></tr>
-      <tr><td style="font-weight:800;color:var(--amber);">5</td><td>Produkty priorytetowe na start</td></tr>
-      <tr><td style="font-weight:800;color:var(--amber);">6</td><td>Ekonomika produktów</td></tr>
-      <tr><td style="font-weight:800;color:var(--amber);">7</td><td>Logistyka kontenerowa</td></tr>
-      <tr><td style="font-weight:800;color:var(--amber);">8</td><td>Model biznesowy w USA</td></tr>
-      <tr><td style="font-weight:800;color:var(--amber);">9</td><td>Współpraca partnera polskiego i amerykańskiego</td></tr>
-      <tr><td style="font-weight:800;color:var(--amber);">10</td><td>Wsparcie sprzedaży przez AI</td></tr>
-      <tr><td style="font-weight:800;color:var(--amber);">11</td><td>Zapotrzebowanie finansowe</td></tr>
-      <tr><td style="font-weight:800;color:var(--amber);">12</td><td>Organizacja w Polsce i USA</td></tr>
-      <tr><td style="font-weight:800;color:var(--amber);">13</td><td>Dokumentacja i wymagania regulacyjne</td></tr>
-      <tr><td style="font-weight:800;color:var(--amber);">14</td><td>Budowa produktu markowego</td></tr>
-      <tr><td style="font-weight:800;color:var(--amber);">15</td><td>Kluczowe przewagi</td></tr>
-      <tr><td style="font-weight:800;color:var(--amber);">16</td><td>Ryzyka projektu</td></tr>
-      <tr><td style="font-weight:800;color:var(--amber);">17</td><td>Cele na pierwsze 12 miesięcy</td></tr>
+      <tr><td style="width:34px;font-weight:800;color:var(--red);">1</td><td>Streszczenie projektu</td></tr>
+      <tr><td style="font-weight:800;color:var(--red);">2</td><td>Geneza i koncepcja</td></tr>
+      <tr><td style="font-weight:800;color:var(--red);">3</td><td>Problemy wykonawców i problem rynkowy</td></tr>
+      <tr><td style="font-weight:800;color:var(--red);">4</td><td>Rozwiązanie i portfolio produktów</td></tr>
+      <tr><td style="font-weight:800;color:var(--red);">5</td><td>Produkty priorytetowe na start</td></tr>
+      <tr><td style="font-weight:800;color:var(--red);">6</td><td>Ekonomika produktów</td></tr>
+      <tr><td style="font-weight:800;color:var(--red);">7</td><td>Logistyka kontenerowa</td></tr>
+      <tr><td style="font-weight:800;color:var(--red);">8</td><td>Model biznesowy w USA</td></tr>
+      <tr><td style="font-weight:800;color:var(--red);">9</td><td>Współpraca partnera polskiego i amerykańskiego</td></tr>
+      <tr><td style="font-weight:800;color:var(--red);">10</td><td>Wsparcie sprzedaży przez AI</td></tr>
+      <tr><td style="font-weight:800;color:var(--red);">11</td><td>Zapotrzebowanie finansowe</td></tr>
+      <tr><td style="font-weight:800;color:var(--red);">12</td><td>Organizacja w Polsce i USA</td></tr>
+      <tr><td style="font-weight:800;color:var(--red);">13</td><td>Dokumentacja i wymagania regulacyjne</td></tr>
+      <tr><td style="font-weight:800;color:var(--red);">14</td><td>Budowa produktu markowego</td></tr>
+      <tr><td style="font-weight:800;color:var(--red);">15</td><td>Kluczowe przewagi</td></tr>
+      <tr><td style="font-weight:800;color:var(--red);">16</td><td>Ryzyka projektu</td></tr>
+      <tr><td style="font-weight:800;color:var(--red);">17</td><td>Cele na pierwsze 12 miesięcy</td></tr>
       <tr><td style="font-weight:800;color:var(--red);">18</td><td>Architektura marek NEXT Industries</td></tr>
       <tr><td style="font-weight:800;color:var(--red);">19</td><td>Porównanie nazw: EZ COAT i NEXTCOAT</td></tr>
       <tr><td style="font-weight:800;color:var(--red);">20</td><td>Mini brandbook</td></tr>
@@ -1157,16 +1163,14 @@ ul.check li:before{content:"▸";position:absolute;left:4px;color:var(--amber);f
   <div class="runhead"><span class="brand">NEXT INDUSTRIES</span><span>19 — Porównanie nazw</span></div>
   <h2 class="section"><span class="num">19.</span><span>Porównanie nazw: EZ COAT i NEXTCOAT</span></h2>
 
-  <p>Dla projektu chemii budowlanej rozważane są dwie nazwy. Poniższe zestawienie jest neutralne i dotyczy wyłącznie warstwy komunikacyjnej.</p>
+  <p>Dla projektu rozważane są dwie nazwy. Zestawienie jest neutralne i dotyczy wyłącznie warstwy komunikacyjnej.</p>
 
-  <div class="cols2" style="margin:14px 0;">
-    <div class="col" style="border-top:4px solid var(--amber);text-align:center;">
-      <img src="assets/ez-coat-logo.png" alt="EZ COAT" style="height:120px;width:auto;">
-      <div class="small" style="margin-top:8px;">Kierunek wizualny nr 1 — istniejący</div>
+  <div class="cols2" style="margin:12px 0;">
+    <div class="col" style="text-align:center;background:#fff;">
+      <img src="assets/ez-coat-logo.png" alt="EZ COAT" style="height:88px;width:auto;">
     </div>
-    <div class="col" style="border-top:4px solid var(--red);text-align:center;display:flex;flex-direction:column;justify-content:center;">
-      <img src="assets/nextcoat-logo.png" alt="NEXTCOAT" style="height:52px;width:auto;margin:0 auto;">
-      <div class="small" style="margin-top:16px;">Kierunek wizualny nr 2 — istniejący</div>
+    <div class="col" style="text-align:center;background:#fff;display:flex;align-items:center;justify-content:center;">
+      <img src="assets/nextcoat-logo.png" alt="NEXTCOAT" style="height:28px;width:auto;">
     </div>
   </div>
 
@@ -1177,22 +1181,17 @@ ul.check li:before{content:"▸";position:absolute;left:4px;color:var(--amber);f
       <tr>
         <td><strong>Główny przekaz</strong></td>
         <td>Mocniej komunikuje <strong>łatwość aplikacji</strong> („EZ” = <em>easy</em>)</td>
-        <td>Mocniej komunikuje <strong>przynależność do rodziny marek NEXT Industries</strong></td>
+        <td>Mocniej komunikuje <strong>przynależność do rodziny NEXT Industries</strong></td>
       </tr>
       <tr>
         <td><strong>Źródło nazwy</strong></td>
-        <td>Nazwa występująca w materiale źródłowym projektu</td>
-        <td>Nazwa alternatywna, spójna z NEXT Industries, NEXTCOLD i NEXTOIL</td>
+        <td>Występuje w materiale źródłowym projektu</td>
+        <td>Alternatywna, spójna z NEXTCOLD i NEXTOIL</td>
       </tr>
       <tr>
         <td><strong>Spójność z rodziną marek</strong></td>
         <td>Samodzielna względem przedrostka „NEXT”</td>
-        <td>Bezpośrednio nawiązuje do wspólnego przedrostka „NEXT”</td>
-      </tr>
-      <tr>
-        <td><strong>Skojarzenie z korzyścią użytkownika</strong></td>
-        <td>Bezpośrednie odniesienie do łatwości nanoszenia</td>
-        <td>Odniesienie do kategorii (<em>coat</em> / powłoka) i marki parasolowej</td>
+        <td>Bezpośrednio nawiązuje do przedrostka „NEXT”</td>
       </tr>
     </tbody>
   </table>
@@ -1213,19 +1212,19 @@ ul.check li:before{content:"▸";position:absolute;left:4px;color:var(--amber);f
   <div class="runhead"><span class="brand">NEXT INDUSTRIES</span><span>20 — Mini brandbook</span></div>
   <h2 class="section"><span class="num">20.</span><span>Mini brandbook</span></h2>
 
-  <p>Poniżej przedstawiono dwa istniejące kierunki wizualne. Znaki prezentowane są w oryginalnej formie — bez zmian i bez przeprojektowania.</p>
+  <p>Znaki prezentowane są w oryginalnej formie — bez zmian, bez zniekształceń i bez przeprojektowania.</p>
 
-  <h3 class="sub"><span class="num">20.1.</span>Znaki marki — dwa kierunki</h3>
+  <h3 class="sub"><span class="num">20.1.</span>Znaki marki</h3>
   <div class="cols2">
     <div class="col" style="border-top:4px solid var(--amber);text-align:center;background:#fff;">
-      <img src="assets/ez-coat-logo.png" alt="EZ COAT — godło" style="height:130px;width:auto;">
-      <div style="font-weight:800;color:var(--graphite);margin-top:8px;">EZ COAT</div>
-      <div class="small">Godło / badge — układ pionowy, forma tarczy herbowej</div>
+      <img src="assets/ez-coat-logo.png" alt="EZ COAT — godło" style="height:126px;width:auto;">
+      <div style="font-weight:800;color:var(--graphite);margin-top:10px;">EZ COAT</div>
+      <div class="small">Godło / badge — układ pionowy</div>
     </div>
     <div class="col" style="border-top:4px solid var(--red);text-align:center;background:#fff;display:flex;flex-direction:column;justify-content:center;">
-      <img src="assets/nextcoat-logo.png" alt="NEXTCOAT — logotyp" style="height:56px;width:auto;margin:0 auto;">
+      <img src="assets/nextcoat-logo.png" alt="NEXTCOAT — logotyp" style="height:40px;width:auto;margin:0 auto;">
       <div style="font-weight:800;color:var(--graphite);margin-top:18px;">NEXTCOAT</div>
-      <div class="small">Logotyp poziomy z sygnetem heksagonalnym</div>
+      <div class="small">Logotyp poziomy z sygnetem</div>
     </div>
   </div>
 
@@ -1314,16 +1313,16 @@ ul.check li:before{content:"▸";position:absolute;left:4px;color:var(--amber);f
   <div class="runhead"><span class="brand">NEXT INDUSTRIES</span><span>21 — Do potwierdzenia</span></div>
   <h2 class="section"><span class="num">21.</span><span>Informacje wymagające potwierdzenia</span></h2>
 
-  <p>Poniżej zebrano wszystkie pozycje oznaczone w dokumencie jako założenia do potwierdzenia lub dane do uzupełnienia.</p>
+  <p style="margin-bottom:4px;">Zestawienie wszystkich pozycji oznaczonych w dokumencie jako założenia do potwierdzenia lub dane do uzupełnienia.</p>
 
-  <h3 class="sub"><span class="num">21.1.</span>Założenia wymagające potwierdzenia</h3>
+  <h3 class="sub" style="margin-top:12px;"><span class="num">21.1.</span>Założenia wymagające potwierdzenia</h3>
   <table class="tbl">
     <thead><tr><th style="width:22%;">Obszar</th><th>Pozycja</th></tr></thead>
     <tbody>
-      <tr><td>Ekonomika (rozdz. 6)</td><td>Wszystkie ceny, koszty i marże produktów — wstępne kalkulacje wymagające potwierdzenia ofertami transportowymi, taryfami celnymi, stawkami magazynowymi i wycenami producentów</td></tr>
-      <tr><td>Logistyka (rozdz. 7)</td><td>Koszty transportu kontenerowego (~4 000–5 000 USD/kontener) i pojemność (~500–600 wiader) — wartości orientacyjne</td></tr>
-      <tr><td>Budowa marki (rozdz. 14)</td><td>Nazwy technologii (EZ-Flex, EZ-HydroShield, EZ-CrackBridge, EZ-Siloxane Matrix, EZ-Bond System, EZ-WeatherLock) — wymagają badania dostępności prawnej</td></tr>
-      <tr><td>Porównanie nazw (rozdz. 19)</td><td>Kwestie prawne, domenowe, SEO i znaków towarowych EZ COAT / NEXTCOAT — wymagają osobnej weryfikacji</td></tr>
+      <tr><td>Ekonomika (rozdz. 6)</td><td>Ceny, koszty i marże produktów — do potwierdzenia ofertami transportowymi, taryfami celnymi, stawkami magazynowymi i wycenami producentów</td></tr>
+      <tr><td>Logistyka (rozdz. 7)</td><td>Koszty transportu (~4 000–5 000 USD/kontener) i pojemność (~500–600 wiader) — wartości orientacyjne</td></tr>
+      <tr><td>Budowa marki (rozdz. 14)</td><td>Nazwy technologii (EZ-Flex, EZ-HydroShield, EZ-CrackBridge i in.) — wymagają badania dostępności prawnej</td></tr>
+      <tr><td>Porównanie nazw (rozdz. 19)</td><td>Kwestie prawne, domenowe, SEO i znaków towarowych — wymagają osobnej weryfikacji</td></tr>
     </tbody>
   </table>
 
@@ -1331,7 +1330,7 @@ ul.check li:before{content:"▸";position:absolute;left:4px;color:var(--amber);f
   <table class="tbl">
     <thead><tr><th style="width:22%;">Obszar</th><th>Brakująca informacja</th></tr></thead>
     <tbody>
-      <tr><td>Zapotrzebowanie finansowe (rozdz. 11)</td><td>Kwoty dla kategorii: towar i logistyka, dokumentacja i przygotowanie produktów, organizacja w USA, sprzedaż i marketing oraz suma wariantu pilotażowego</td></tr>
+      <tr><td>Zapotrzebowanie finansowe (rozdz. 11)</td><td>Kwoty dla czterech kategorii nakładów oraz suma wariantu pilotażowego</td></tr>
       <tr><td>Brandbook — kolory (rozdz. 20.2)</td><td>Specyfikacja druku: odpowiedniki CMYK / Pantone dla kolorów marki</td></tr>
       <tr><td>Brandbook — typografia (rozdz. 20.3)</td><td>Nazwy krojów pismowych logotypów oraz kroju tekstowego komunikacji marki</td></tr>
       <tr><td>Brandbook — warianty znaku (rozdz. 20.4)</td><td>Pełne wersje znaku: mono, negatyw, warianty na różnych tłach</td></tr>
@@ -1342,11 +1341,8 @@ ul.check li:before{content:"▸";position:absolute;left:4px;color:var(--amber);f
   <div class="summary">
     <div class="box-title">Rekomendacja</div>
     <p style="margin:0;">Przed decyzją inwestycyjną należy domknąć przede wszystkim: budżet wariantu pilotażowego (kwoty), potwierdzenie kosztów produkcji i logistyki oraz weryfikację prawną nazw i znaków. Pozostałe pozycje dotyczą uszczegółowienia identyfikacji wizualnej.</p>
+    <p style="margin:10px 0 0 0;padding-top:8px;border-top:1px solid rgba(255,255,255,.18);font-size:7.8pt;color:#E9CBB2;text-align:center;">— Koniec dokumentu — &nbsp;•&nbsp; Opracowano wyłącznie na podstawie dostarczonego materiału źródłowego i wskazanego kontekstu.</p>
   </div>
-
-  <p class="small" style="margin-top:20px;text-align:center;color:#B4B4AE;">
-    — Koniec dokumentu — &nbsp;•&nbsp; Opracowano wyłącznie na podstawie dostarczonego materiału źródłowego i wskazanego kontekstu.
-  </p>
 </section>
 
 </body>
