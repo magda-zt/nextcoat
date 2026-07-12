@@ -61,20 +61,20 @@ em{font-style:italic;}
 /* ---------- OKŁADKA ---------- */
 .cover{ page:cover; break-after:page; background:var(--white); }
 .cover-hero{ background:linear-gradient(150deg,#4A0D12 0%,#2A0A0C 55%,#231A18 100%);
-  color:#fff; padding:27mm 22mm 20mm 22mm; position:relative; }
+  color:#fff; padding:44mm 22mm 40mm 22mm; position:relative; }
 .cover-hero .bar{ position:absolute; top:0; left:0; width:100%; height:5px;
   background:linear-gradient(90deg,var(--red) 0 62%,var(--amber) 62% 100%); }
 .cover-eyebrow{ font-size:8.5pt; letter-spacing:3.5px; text-transform:uppercase;
   color:#E7C07A; font-weight:700; margin:26px 0 0 0; }
-.cover h1{ color:#fff; font-size:34pt; line-height:1.05; margin:9px 0 0 0;
-  letter-spacing:-.6px; font-weight:800; }
+.cover h1{ color:#fff; font-size:39pt; line-height:1.04; margin:11px 0 0 0;
+  letter-spacing:-.7px; font-weight:800; }
 .cover-rule{ width:64px;height:3px;background:var(--red-bright);margin:16px 0 0;border-radius:2px; }
 .cover-sub{ margin:14px 0 0; font-size:12.5pt; line-height:1.4; color:#E4DCD8;
   max-width:150mm; font-weight:300; }
 .cover-body{ padding:16mm 22mm 0; }
 .cover-vp{ border-left:4px solid var(--red); padding:2px 0 2px 16px; }
 .cover-vp p{ font-size:11.5pt; color:var(--graphite); margin:0; }
-.cover-meta{ padding:0 22mm; margin-top:14mm; }
+.cover-meta{ padding:0 22mm; margin-top:20mm; }
 .cover-meta table{ width:100%; border-collapse:collapse; font-size:9pt; }
 .cover-meta td{ padding:10px 0; border-top:1px solid var(--line-strong); }
 .cover-meta td:first-child{ color:var(--muted); width:38%; }
@@ -134,7 +134,7 @@ h4{ font-size:10.4pt; margin:12px 0 6px; text-transform:uppercase; letter-spacin
 
 /* karta informacyjna / hero wewnętrzny */
 .panel{ background:var(--card); border:1px solid var(--line); border-radius:12px;
-  padding:16px 18px; margin:12px 0; }
+  padding:16px 18px; margin:12px 0; break-inside:avoid; }
 .panel-dark{ background:linear-gradient(140deg,#3A0A0E,#231A18); color:#EDE6E3;
   border:none; }
 .panel-dark h4{ color:#E7C07A; }
@@ -157,9 +157,9 @@ h4{ font-size:10.4pt; margin:12px 0 6px; text-transform:uppercase; letter-spacin
 .grid3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
 .fcard{ background:var(--card); border:1px solid var(--line); border-radius:10px;
   padding:13px 15px; break-inside:avoid; font-size:10.4pt;
-  display:grid; grid-template-columns:24px 1fr; gap:11px; align-items:center; }
-.fcard .ic{ width:24px; height:24px; border-radius:6px; background:var(--red);
-  color:#fff; text-align:center; line-height:24px; font-size:12px; font-weight:800; }
+  display:grid; grid-template-columns:14px 1fr; gap:9px; align-items:center; }
+.fcard .ic{ width:8px; height:8px; border-radius:50%; background:var(--red);
+  color:transparent; font-size:0; line-height:0; margin:0 auto; }
 .fcard .tx{ display:block; }
 .fcard .tx b{ color:var(--graphite); }
 
@@ -174,12 +174,15 @@ h4{ font-size:10.4pt; margin:12px 0 6px; text-transform:uppercase; letter-spacin
 
 /* ---------- TABELE ---------- */
 table.tbl{ width:100%; border-collapse:collapse; margin:13px 0; font-size:10pt;
-  border-radius:8px; overflow:hidden; }
+  border-radius:8px; overflow:hidden; break-inside:avoid; }
 table.tbl caption{ caption-side:top; text-align:left; font-weight:800; color:var(--muted);
-  font-size:8.2pt; letter-spacing:.9px; text-transform:uppercase; padding-bottom:6px; }
+  font-size:9pt; letter-spacing:.9px; text-transform:uppercase; padding-bottom:7px;
+  break-after:avoid; break-inside:avoid; }
 table.tbl th{ background:var(--red-deep); color:#fff; text-align:left; padding:9px 11px;
   font-size:9.3pt; letter-spacing:.4px; vertical-align:middle; }
 table.tbl td{ padding:8px 11px; border-bottom:1px solid var(--line); vertical-align:top; }
+table.tbl thead{ display:table-header-group; }
+table.tbl.splitok{ break-inside:auto; }
 table.tbl tbody tr:nth-child(even){ background:var(--tint); }
 table.tbl tr{ break-inside:avoid; }
 table.tbl td.num,table.tbl th.num{ text-align:right; white-space:nowrap; }
@@ -196,15 +199,7 @@ table.tbl td.num,table.tbl th.num{ text-align:right; white-space:nowrap; }
 <div class="cover">
   <div class="cover-hero">
     <div class="bar"></div>
-    <table style="border-collapse:collapse;"><tr>
-      <td style="vertical-align:middle;padding-right:24px;">
-        <img src="assets/ez-coat-logo.png" alt="EZ COAT" style="height:118px;width:auto;background:#fff;padding:8px;border-radius:6px;">
-      </td>
-      <td style="vertical-align:middle;border-left:1px solid #4a4a46;padding-left:24px;">
-        <img src="assets/nextcoat-logo.png" alt="NEXTCOAT" style="height:40px;width:auto;background:#fff;padding:10px 14px;border-radius:6px;">
-      </td>
-    </tr></table>
-    <p class="cover-eyebrow">NEXT Industries &nbsp;•&nbsp; Chemia budowlana</p>
+    <p class="cover-eyebrow" style="margin-top:0;">NEXT Industries &nbsp;•&nbsp; Chemia budowlana</p>
     <h1>Biznesplan wejścia<br>na rynek USA</h1>
     <div class="cover-rule"></div>
     <p class="cover-sub">Europejska technologia chemii budowlanej. Amerykańskie doświadczenie. Skalowalny model dystrybucji.</p>
@@ -338,7 +333,7 @@ table.tbl td.num,table.tbl th.num{ text-align:right; white-space:nowrap; }
   </div>
 
   <h3 class="sub"><span class="num">4.2.</span>Podstawowe portfolio produktowe</h3>
-  <table class="tbl">
+  <table class="tbl splitok">
     <caption>Grupy produktowe I–V</caption>
     <thead><tr><th style="width:22%;">Grupa</th><th>Produkty</th></tr></thead>
     <tbody>
