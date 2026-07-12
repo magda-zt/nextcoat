@@ -22,8 +22,8 @@
   --muted:#7A756D;
   --line:#EAE6E2;
   --line-strong:#D9D3CE;
-  --tint:#F8F6F4;
-  --card:#F7F5F3;
+  --tint:#FBFAF8;
+  --card:#FAF8F5;
   --white:#fff;
   --sans:"Helvetica Neue",Arial,"Segoe UI",Roboto,system-ui,sans-serif;
 }
@@ -46,16 +46,17 @@
 
 *{box-sizing:border-box;}
 html,body{margin:0;padding:0;}
-body{ font-family:var(--sans); color:#33312B; font-size:10.2pt; line-height:1.5;
-  -webkit-font-smoothing:antialiased; background:#6d6d6d; }
+body{ font-family:var(--sans); color:#312F29; font-size:11pt; line-height:1.55;
+  -webkit-font-smoothing:antialiased; background:#fff; widows:3; orphans:3; }
+@media screen{ body{ background:#6d6d6d; } }
 
 p{margin:0 0 8px 0;}
 ul,ol{margin:0 0 8px 0;padding-left:18px;}
 li{margin:2px 0;}
 strong{color:var(--graphite);}
 em{font-style:italic;}
-.small{font-size:8.5pt;color:var(--muted);}
-.lead{font-size:11pt;color:#3a3833;}
+.small{font-size:9.2pt;color:var(--muted);}
+.lead{font-size:12.5pt;color:#3a3833;line-height:1.5;}
 
 /* ---------- OKŁADKA ---------- */
 .cover{ page:cover; break-after:page; background:var(--white); }
@@ -92,8 +93,9 @@ em{font-style:italic;}
   padding-left:14px; position:relative; }
 .toc h2::before{ content:""; position:absolute; left:0; top:2px; bottom:2px; width:5px;
   background:var(--red); border-radius:3px; }
-.toc a{ display:block; color:var(--graphite); text-decoration:none; font-size:10.6pt;
-  margin:7px 0; }
+.toc a{ display:block; color:var(--graphite); text-decoration:none; font-size:13pt;
+  margin:20px 0; }
+.toc h2{ font-size:19pt; margin-bottom:20px; }
 .toc a .tn{ color:var(--red); font-weight:800; display:inline-block; width:26px; }
 .toc a::after{ content: leader('. ') target-counter(attr(href), page);
   color:var(--muted); font-weight:400; }
@@ -101,38 +103,38 @@ em{font-style:italic;}
 
 /* ---------- SEKCJE / NAGŁÓWKI ---------- */
 section.sec{ margin:0 0 6px; }
-section.sec + section.sec{ margin-top:20px; }
-h2.sec{ font-size:15.5pt; font-weight:800; color:var(--graphite); letter-spacing:-.2px;
-  line-height:1.16; margin:0 0 11px; padding-left:14px; position:relative;
+section.sec + section.sec{ margin-top:26px; }
+h2.sec{ font-size:18pt; font-weight:800; color:var(--graphite); letter-spacing:-.3px;
+  line-height:1.14; margin:0 0 14px; padding-left:15px; position:relative;
   string-set:sectitle content(); break-after:avoid; }
 h2.sec::before{ content:""; position:absolute; left:0; top:2px; bottom:2px; width:5px;
   background:var(--red); border-radius:3px; }
 h2.sec .num{ color:var(--red); font-weight:800; margin-right:7px; }
-h3.sub{ font-size:11.4pt; font-weight:800; color:var(--graphite); margin:16px 0 7px;
+h3.sub{ font-size:12.8pt; font-weight:800; color:var(--graphite); margin:18px 0 8px;
   break-after:avoid; }
 h3.sub .num{ color:var(--red); font-weight:800; margin-right:6px; }
-h4{ font-size:9.6pt; margin:12px 0 5px; text-transform:uppercase; letter-spacing:.7px;
+h4{ font-size:10.4pt; margin:12px 0 6px; text-transform:uppercase; letter-spacing:.7px;
   color:var(--muted); font-weight:800; }
 
 /* ---------- KARTY / RAMKI ---------- */
 /* kluczowy wniosek — TYLKO czerwona ramka, bez etykiety */
 .take{ background:var(--white); border:1px solid var(--line-strong);
-  border-left:4px solid var(--red); border-radius:7px; padding:11px 15px; margin:13px 0;
-  break-inside:avoid; color:#3c3a34; }
+  border-left:5px solid var(--red); border-radius:8px; padding:13px 17px; margin:15px 0;
+  break-inside:avoid; color:#3c3a34; font-size:10.8pt; }
 .take p{margin:0;}
 
 /* nota (założenie / dane) — elegancka karta z pigułką */
 .note{ background:var(--card); border:1px solid var(--line); border-radius:10px;
   padding:13px 16px; margin:13px 0; break-inside:avoid; }
-.pill{ display:inline-block; background:var(--red); color:#fff; font-size:7pt;
-  font-weight:800; letter-spacing:1px; text-transform:uppercase; padding:3px 11px;
-  border-radius:20px; margin-bottom:8px; }
+.pill{ display:inline-block; background:var(--red); color:#fff; font-size:7.8pt;
+  font-weight:800; letter-spacing:1px; text-transform:uppercase; padding:3px 12px;
+  border-radius:20px; margin-bottom:9px; }
 .pill.muted{ background:#8A857D; }
-.note p{ margin:0; font-size:9.4pt; color:#46433d; }
+.note p{ margin:0; font-size:10.2pt; color:#46433d; }
 
 /* karta informacyjna / hero wewnętrzny */
 .panel{ background:var(--card); border:1px solid var(--line); border-radius:12px;
-  padding:16px 18px; margin:12px 0; break-inside:avoid; }
+  padding:16px 18px; margin:12px 0; }
 .panel-dark{ background:linear-gradient(140deg,#3A0A0E,#231A18); color:#EDE6E3;
   border:none; }
 .panel-dark h4{ color:#E7C07A; }
@@ -140,43 +142,44 @@ h4{ font-size:9.6pt; margin:12px 0 5px; text-transform:uppercase; letter-spacing
 
 /* pigułki tagów */
 .tag{ display:inline-block; background:var(--red); color:#fff; font-weight:800;
-  font-size:7.4pt; padding:2px 9px; border-radius:20px; letter-spacing:.5px; }
+  font-size:8.2pt; padding:3px 10px; border-radius:20px; letter-spacing:.5px; }
 .tag.amber{ background:var(--amber); color:#3a2e00; }
 .tag.navy{ background:var(--navy); color:#fff; }
 
 /* dwie kolumny */
-.cols2{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.cols2{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
 .col-card{ background:var(--card); border:1px solid var(--line); border-radius:10px;
-  padding:13px 15px; }
+  padding:16px 18px; }
 .col-card h4{ margin-top:0; color:var(--graphite); }
 
 /* siatka kart z „ptaszkiem” */
-.grid2{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-.grid3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
+.grid2{ display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.grid3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
 .fcard{ background:var(--card); border:1px solid var(--line); border-radius:10px;
-  padding:11px 13px; break-inside:avoid; overflow:hidden; }
-.fcard .ic{ float:left; width:22px; height:22px; border-radius:6px; background:var(--red);
-  color:#fff; text-align:center; line-height:22px; font-size:12px; font-weight:800;
-  margin-right:10px; }
-.fcard .tx{ overflow:hidden; display:block; }
+  padding:13px 15px; break-inside:avoid; font-size:10.4pt;
+  display:grid; grid-template-columns:24px 1fr; gap:11px; align-items:center; }
+.fcard .ic{ width:24px; height:24px; border-radius:6px; background:var(--red);
+  color:#fff; text-align:center; line-height:24px; font-size:12px; font-weight:800; }
+.fcard .tx{ display:block; }
 .fcard .tx b{ color:var(--graphite); }
 
 /* karty-kamienie milowe (cele) */
 .mcard{ background:var(--white); border:1px solid var(--line-strong); border-radius:10px;
-  padding:11px 13px 11px 13px; break-inside:avoid; overflow:hidden; }
-.mcard .no{ float:left; width:24px; height:24px; border-radius:50%;
-  background:var(--red-deep); color:#fff; text-align:center; line-height:24px;
-  font-size:9pt; font-weight:800; margin-right:11px; }
-.mcard .tx{ overflow:hidden; display:block; font-size:9.6pt; }
+  padding:13px 15px; break-inside:avoid;
+  display:grid; grid-template-columns:26px 1fr; gap:12px; align-items:center; }
+.mcard .no{ width:26px; height:26px; border-radius:50%;
+  background:var(--red-deep); color:#fff; text-align:center; line-height:26px;
+  font-size:9.5pt; font-weight:800; }
+.mcard .tx{ display:block; font-size:10.6pt; }
 
 /* ---------- TABELE ---------- */
-table.tbl{ width:100%; border-collapse:collapse; margin:12px 0; font-size:9.2pt;
+table.tbl{ width:100%; border-collapse:collapse; margin:13px 0; font-size:10pt;
   border-radius:8px; overflow:hidden; }
 table.tbl caption{ caption-side:top; text-align:left; font-weight:800; color:var(--muted);
   font-size:8.2pt; letter-spacing:.9px; text-transform:uppercase; padding-bottom:6px; }
-table.tbl th{ background:var(--red-deep); color:#fff; text-align:left; padding:8px 10px;
-  font-size:8.5pt; letter-spacing:.4px; vertical-align:middle; }
-table.tbl td{ padding:7px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+table.tbl th{ background:var(--red-deep); color:#fff; text-align:left; padding:9px 11px;
+  font-size:9.3pt; letter-spacing:.4px; vertical-align:middle; }
+table.tbl td{ padding:8px 11px; border-bottom:1px solid var(--line); vertical-align:top; }
 table.tbl tbody tr:nth-child(even){ background:var(--tint); }
 table.tbl tr{ break-inside:avoid; }
 table.tbl td.num,table.tbl th.num{ text-align:right; white-space:nowrap; }
@@ -198,7 +201,7 @@ table.tbl td.num,table.tbl th.num{ text-align:right; white-space:nowrap; }
         <img src="assets/ez-coat-logo.png" alt="EZ COAT" style="height:118px;width:auto;background:#fff;padding:8px;border-radius:6px;">
       </td>
       <td style="vertical-align:middle;border-left:1px solid #4a4a46;padding-left:24px;">
-        <img src="assets/nextcoat-logo.png" alt="NEXTCOAT" style="height:34px;width:auto;background:#fff;padding:12px 16px;border-radius:6px;">
+        <img src="assets/nextcoat-logo.png" alt="NEXTCOAT" style="height:40px;width:auto;background:#fff;padding:10px 14px;border-radius:6px;">
       </td>
     </tr></table>
     <p class="cover-eyebrow">NEXT Industries &nbsp;•&nbsp; Chemia budowlana</p>
@@ -690,7 +693,7 @@ table.tbl td.num,table.tbl th.num{ text-align:right; white-space:nowrap; }
   <p>Dla projektu rozważane są dwie nazwy. Zestawienie jest neutralne i dotyczy wyłącznie warstwy komunikacyjnej.</p>
   <div class="cols2" style="margin:12px 0;">
     <div class="logo-box"><img src="assets/ez-coat-logo.png" alt="EZ COAT" style="height:92px;"></div>
-    <div class="logo-box"><img src="assets/nextcoat-logo.png" alt="NEXTCOAT" style="height:30px;"></div>
+    <div class="logo-box"><img src="assets/nextcoat-logo.png" alt="NEXTCOAT" style="height:44px;"></div>
   </div>
   <table class="tbl">
     <caption>Neutralne porównanie komunikacyjne</caption>
